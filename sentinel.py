@@ -1,11 +1,10 @@
-import google.generativeai as genai
+from google import genai
 import json
 from datetime import datetime
 import os
 import time
 
-genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
-model = genai.GenerativeModel('models/gemini-1.5-flash-latest')
+client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 
 SAMPLE_EVENTS = [
     {"event": "Failed login attempt", "ip": "192.168.1.100", "attempts": 50},
@@ -21,7 +20,10 @@ Event: {json.dumps(event)}
 Respond with exactly this JSON:
 {{"threat_level": "CRITICAL or HIGH or MEDIUM or LOW", "threat_type": "brief type", "description": "what this means", "action": "what to do", "score": 75}}"""
 
-    response = model.generate_content(prompt)
+    response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        contents=prompt
+    )
     text = response.text.strip()
     text = text.replace('```json', '').replace('```', '').strip()
     return json.loads(text)
@@ -39,7 +41,7 @@ def run_sentinel():
 
     for i, event in enumerate(SAMPLE_EVENTS, 1):
         print(f"\n[Event {i}] Analyzing: {event['event']}...")
-        time.sleep(2)
+        time.sleep(3)
         result = analyze_threat(event)
         level = result['threat_level']
         if level == "CRITICAL":
