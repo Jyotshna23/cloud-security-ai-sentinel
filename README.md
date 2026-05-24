@@ -1,3 +1,8 @@
+![Pipeline](https://github.com/Jyotshna23/cloud-security-ai-sentinel/actions/workflows/sentinel.yml/badge.svg)
+![Python](https://img.shields.io/badge/Python-3.9-blue)
+![AI](https://img.shields.io/badge/AI-Gemini-orange)
+![Security](https://img.shields.io/badge/Security-Cloud-red)
+
 # 🛡️ Cloud Security AI Sentinel
 
 ## 🚨 Problem Statement
