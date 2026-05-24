@@ -1,8 +1,10 @@
-import anthropic
+import google.generativeai as genai
 import json
 from datetime import datetime
+import os
 
-client = anthropic.Anthropic(api_key="YOUR_API_KEY_HERE")
+genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
+model = genai.GenerativeModel('gemini-1.5-flash')
 
 SAMPLE_EVENTS = [
     {"event": "Failed login attempt", "ip": "192.168.1.100", "attempts": 50, "time": "2024-01-15 10:30:00"},
@@ -13,68 +15,68 @@ SAMPLE_EVENTS = [
 ]
 
 def analyze_threat(event):
-    prompt = f"""You are a cloud security expert. Analyze this security event and respond in JSON format only:
-    
+    prompt = f"""You are a cloud security expert. Analyze this security event and respond in JSON format only with no extra text:
+
 Event: {json.dumps(event)}
 
-Respond with exactly this JSON structure:
+Respond with exactly this JSON:
 {{
-    "threat_level": "CRITICAL/HIGH/MEDIUM/LOW",
+    "threat_level": "CRITICAL or HIGH or MEDIUM or LOW",
     "threat_type": "brief threat type",
-    "description": "what this means in simple terms",
-    "action": "what to do immediately",
-    "score": 0-100
+    "description": "what this means",
+    "action": "what to do",
+    "score": 0
 }}"""
 
-    message = client.messages.create(
-        model="claude-sonnet-4-20250514",
-        max_tokens=1000,
-        messages=[{"role": "user", "content": prompt}]
-    )
-    
-    return json.loads(message.content[0].text)
+    response = model.generate_content(prompt)
+    text = response.text.strip()
+    if text.startswith("```"):
+        text = text.split("```")[1]
+        if text.startswith("json"):
+            text = text[4:]
+    return json.loads(text.strip())
 
 def run_sentinel():
     print("=" * 60)
-    print("🛡️  CLOUD SECURITY AI SENTINEL")
+    print("CLOUD SECURITY AI SENTINEL")
     print("=" * 60)
     print(f"Scan Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"Events Detected: {len(SAMPLE_EVENTS)}")
     print("=" * 60)
-    
+
     critical_count = 0
     high_count = 0
-    
+
     for i, event in enumerate(SAMPLE_EVENTS, 1):
         print(f"\n[Event {i}] Analyzing: {event['event']}...")
         result = analyze_threat(event)
-        
+
         level = result['threat_level']
         if level == "CRITICAL":
             critical_count += 1
-            icon = "🔴"
+            icon = "CRITICAL"
         elif level == "HIGH":
             high_count += 1
-            icon = "🟠"
+            icon = "HIGH"
         elif level == "MEDIUM":
-            icon = "🟡"
+            icon = "MEDIUM"
         else:
-            icon = "🟢"
-        
-        print(f"{icon} Threat Level: {level} (Score: {result['score']}/100)")
-        print(f"   Type: {result['threat_type']}")
-        print(f"   Details: {result['description']}")
-        print(f"   Action: {result['action']}")
+            icon = "LOW"
+
+        print(f"Threat Level: {icon} (Score: {result['score']}/100)")
+        print(f"Type: {result['threat_type']}")
+        print(f"Details: {result['description']}")
+        print(f"Action: {result['action']}")
         print("-" * 60)
-    
-    print(f"\n📊 SUMMARY REPORT")
-    print(f"   🔴 Critical Threats: {critical_count}")
-    print(f"   🟠 High Threats: {high_count}")
-    print(f"   Total Events Scanned: {len(SAMPLE_EVENTS)}")
-    
+
+    print(f"\nSUMMARY REPORT")
+    print(f"Critical Threats: {critical_count}")
+    print(f"High Threats: {high_count}")
+    print(f"Total Events Scanned: {len(SAMPLE_EVENTS)}")
+
     if critical_count > 0:
-        print(f"\n🚨 ALERT: {critical_count} CRITICAL threat(s) detected!")
-        print("   Immediate action required!")
+        print(f"\nALERT: {critical_count} CRITICAL threat(s) detected!")
+        print("Immediate action required!")
 
 if __name__ == "__main__":
     run_sentinel()
