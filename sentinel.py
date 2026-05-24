@@ -4,7 +4,7 @@ from datetime import datetime
 import os
 
 genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
-model = genai.GenerativeModel('gemini-2.0-flash-exp')
+model = genai.GenerativeModel('gemini-pro')
 
 SAMPLE_EVENTS = [
     {"event": "Failed login attempt", "ip": "192.168.1.100", "attempts": 50, "time": "2024-01-15 10:30:00"},
