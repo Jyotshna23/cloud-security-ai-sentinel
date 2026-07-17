@@ -1,0 +1,47 @@
+{
+  "scan_time": "2026-07-17 06:13:47",
+  "critical_count": 0,
+  "high_count": 2,
+  "total_events": 3,
+  "events": [
+    {
+      "event_name": "Failed login attempt",
+      "raw_event": {
+        "event": "Failed login attempt",
+        "ip": "192.168.1.100",
+        "attempts": 50
+      },
+      "threat_level": "HIGH",
+      "score": 75,
+      "threat_type": "Brute-Force Attack",
+      "description": "50 failed login attempts detected from IP 192.168.1.100, indicating a potential brute-force or credential stuffing attempt on the network.",
+      "action": "Block the source IP address immediately, audit targeted user accounts for successful logins, and enforce multi-factor authentication (MFA)."
+    },
+    {
+      "event_name": "Unusual data download",
+      "raw_event": {
+        "event": "Unusual data download",
+        "ip": "10.0.0.55",
+        "size_gb": 15.5
+      },
+      "threat_level": "HIGH",
+      "score": 80,
+      "threat_type": "Data Exfiltration / Insider Threat",
+      "description": "An internal host (10.0.0.55) downloaded an anomalously large volume of data (15.5 GB), which may indicate unauthorized data hoarding or preparation for external exfiltration.",
+      "action": "Isolate the host 10.0.0.55 from the network, identify the user account responsible, audit the specific files accessed, and inspect firewall logs for external data transfers."
+    },
+    {
+      "event_name": "Port scan detected",
+      "raw_event": {
+        "event": "Port scan detected",
+        "ip": "172.16.0.200",
+        "ports_scanned": 1000
+      },
+      "threat_level": "MEDIUM",
+      "score": 65,
+      "threat_type": "Reconnaissance",
+      "description": "Internal host 172.16.0.200 performed a rapid port scan of 1000 ports, indicating potential reconnaissance for lateral movement or host compromise.",
+      "action": "Isolate host 172.16.0.200 from the VPC, inspect security group logs, and scan the source instance for malware or unauthorized scripts."
+    }
+  ]
+}
