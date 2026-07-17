@@ -32,12 +32,14 @@ def run_sentinel():
     print("=" * 60)
     print("CLOUD SECURITY AI SENTINEL")
     print("=" * 60)
-    print(f"Scan Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    scan_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    print(f"Scan Time: {scan_time}")
     print(f"Events Detected: {len(SAMPLE_EVENTS)}")
     print("=" * 60)
 
     critical_count = 0
     high_count = 0
+    results_list = []
 
     for i, event in enumerate(SAMPLE_EVENTS, 1):
         print(f"\n[Event {i}] Analyzing: {event['event']}...")
@@ -54,12 +56,33 @@ def run_sentinel():
         print(f"Action: {result['action']}")
         print("-" * 60)
 
+        results_list.append({
+            "event_name": event["event"],
+            "raw_event": event,
+            "threat_level": level,
+            "score": result["score"],
+            "threat_type": result["threat_type"],
+            "description": result["description"],
+            "action": result["action"]
+        })
+
     print(f"\nSUMMARY REPORT")
     print(f"Critical Threats: {critical_count}")
     print(f"High Threats: {high_count}")
     print(f"Total Events Scanned: {len(SAMPLE_EVENTS)}")
     if critical_count > 0:
         print(f"\nALERT: {critical_count} CRITICAL threat(s) detected!")
+
+    output = {
+        "scan_time": scan_time,
+        "critical_count": critical_count,
+        "high_count": high_count,
+        "total_events": len(SAMPLE_EVENTS),
+        "events": results_list
+    }
+    with open("results.json", "w") as f:
+        json.dump(output, f, indent=2)
+    print("\nSaved results.json")
 
 if __name__ == "__main__":
     run_sentinel()
