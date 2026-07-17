@@ -21,7 +21,7 @@ Respond with exactly this JSON:
 {{"threat_level": "CRITICAL or HIGH or MEDIUM or LOW", "threat_type": "brief type", "description": "what this means", "action": "what to do", "score": 75}}"""
 
     response = client.models.generate_content(
-        model="gemini-2.0-flash",
+        model="gemini-2.5-flash",
         contents=prompt
     )
     text = response.text.strip()
