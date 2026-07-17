@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cloud Security AI Sentinel</title>
+<style>
+  body { font-family: -apple-system, Segoe UI, Roboto, sans-serif; background:#0d1117; color:#e6edf3; margin:0; padding:40px 20px; }
+  .wrap { max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 24px; margin-bottom:4px; }
+  .sub { color:#8b949e; margin-bottom:24px; font-size:14px; }
+  .summary { display:flex; gap:16px; margin-bottom:28px; flex-wrap:wrap; }
+  .stat { background:#161b22; border:1px solid #30363d; border-radius:8px; padding:16px 20px; flex:1; min-width:140px; }
+  .stat .num { font-size:28px; font-weight:700; }
+  .stat .label { color:#8b949e; font-size:13px; }
+  .critical .num { color:#f85149; }
+  .high .num { color:#f0883e; }
+  .card { background:#161b22; border:1px solid #30363d; border-radius:8px; padding:18px 20px; margin-bottom:14px; }
+  .card-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .event-name { font-weight:600; font-size:15px; }
+  .badge { padding:3px 10px; border-radius:12px; font-size:12px; font-weight:600; }
+  .badge.CRITICAL { background:#3d1418; color:#f85149; }
+  .badge.HIGH { background:#3d2a14; color:#f0883e; }
+  .badge.MEDIUM { background:#3d3a14; color:#e3b341; }
+  .badge.LOW { background:#14311f; color:#3fb950; }
+  .desc { color:#c9d1d9; font-size:14px; margin:8px 0; line-height:1.5; }
+  .action { color:#8b949e; font-size:13px; border-left:2px solid #30363d; padding-left:10px; margin-top:8px; }
+  .loading { color:#8b949e; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🛡️ Cloud Security AI Sentinel</h1>
+  <div class="sub" id="scanTime">Loading latest scan...</div>
+  <div class="summary" id="summary"></div>
+  <div id="events" class="loading">Fetching results.json...</div>
+</div>
+<script>
+fetch('results.json?_=' + Date.now())
+  .then(r => r.json())
+  .then(data => {
+    document.getElementById('scanTime').textContent = 'Last scan: ' + data.scan_time;
+    document.getElementById('summary').innerHTML = `
+      <div class="stat critical"><div class="num">${data.critical_count}</div><div class="label">Critical</div></div>
+      <div class="stat high"><div class="num">${data.high_count}</div><div class="label">High</div></div>
+      <div class="stat"><div class="num">${data.total_events}</div><div class="label">Total Events Scanned</div></div>
+    `;
+    document.getElementById('events').innerHTML = data.events.map(e => `
+      <div class="card">
+        <div class="card-head">
+          <span class="event-name">${e.event_name}</span>
+          <span class="badge ${e.threat_level}">${e.threat_level} · ${e.score}/100</span>
+        </div>
+        <div class="desc">${e.description}</div>
+        <div class="action"><strong>Action:</strong> ${e.action}</div>
+      </div>
+    `).join('');
+  })
+  .catch(err => {
+    document.getElementById('events').textContent = 'Could not load results.json yet — run the workflow once.';
+  });
+</script>
+</body>
+</html>
