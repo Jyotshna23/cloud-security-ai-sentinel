@@ -1,5 +1,5 @@
 {
-  "scan_time": "2026-07-18 08:04:14",
+  "scan_time": "2026-07-18 13:38:55",
   "critical_count": 0,
   "high_count": 3,
   "total_events": 3,
@@ -12,10 +12,10 @@
         "attempts": 50
       },
       "threat_level": "HIGH",
-      "score": 75,
+      "score": 80,
       "threat_type": "Brute Force Attack",
-      "description": "Multiple failed login attempts from a single IP address indicating a brute-force or credential stuffing attack.",
-      "action": "Block the source IP address, notify affected users, and enforce multi-factor authentication."
+      "description": "An unusually high number of failed login attempts (50) detected from a single IP address (192.168.1.100), indicating a potential brute-force or credential stuffing attempt.",
+      "action": "Block the source IP address, audit targeted user accounts, and verify if Multi-Factor Authentication (MFA) is enabled."
     },
     {
       "event_name": "Unusual data download",
@@ -25,10 +25,10 @@
         "size_gb": 15.5
       },
       "threat_level": "HIGH",
-      "score": 75,
+      "score": 80,
       "threat_type": "Data Exfiltration",
-      "description": "An internal host (10.0.0.55) has downloaded an anomalous volume of data (15.5 GB), suggesting potential data exfiltration, compromised credentials, or insider threat activity.",
-      "action": "Isolate the source IP (10.0.0.55) from the network, identify the user account associated with the transfer, and audit the accessed files and destination."
+      "description": "An internal device (10.0.0.55) downloaded an anomalously large volume of data (15.5 GB), which may indicate unauthorized data extraction or a compromised internal host.",
+      "action": "Isolate the host at 10.0.0.55, identify the associated user account, and audit the specific data resources accessed."
     },
     {
       "event_name": "Port scan detected",
@@ -40,8 +40,8 @@
       "threat_level": "HIGH",
       "score": 75,
       "threat_type": "Internal Reconnaissance",
-      "description": "An internal host (172.16.0.200) performed a rapid scan of 1000 ports. This is highly indicative of a compromised internal asset conducting reconnaissance for lateral movement.",
-      "action": "Isolate the host at 172.16.0.200 from the network immediately, terminate its active sessions, and initiate an incident response investigation to determine the root cause of the compromise."
+      "description": "An internal host (172.16.0.200) has scanned 1000 ports, indicating potential lateral movement, network mapping, or a compromised internal asset.",
+      "action": "Isolate the source IP (172.16.0.200) from the network immediately, review its traffic logs, and investigate for signs of compromise."
     }
   ]
 }
