@@ -1,5 +1,5 @@
 {
-  "scan_time": "2026-07-18 03:16:22",
+  "scan_time": "2026-07-18 08:04:14",
   "critical_count": 0,
   "high_count": 3,
   "total_events": 3,
@@ -14,8 +14,8 @@
       "threat_level": "HIGH",
       "score": 75,
       "threat_type": "Brute Force Attack",
-      "description": "A high volume of failed login attempts (50) from a single IP address indicates a potential brute-force or credential stuffing attack targeting the system.",
-      "action": "Block the source IP address 192.168.1.100, inspect the targeted accounts for successful logins, and enforce multi-factor authentication."
+      "description": "Multiple failed login attempts from a single IP address indicating a brute-force or credential stuffing attack.",
+      "action": "Block the source IP address, notify affected users, and enforce multi-factor authentication."
     },
     {
       "event_name": "Unusual data download",
@@ -27,8 +27,8 @@
       "threat_level": "HIGH",
       "score": 75,
       "threat_type": "Data Exfiltration",
-      "description": "An internal host (10.0.0.55) performed an anomalously large data transfer of 15.5 GB, indicating potential unauthorized data extraction or lateral movement.",
-      "action": "Isolate the host at 10.0.0.55, terminate active sessions associated with the IP, and audit access logs to identify the compromised data."
+      "description": "An internal host (10.0.0.55) has downloaded an anomalous volume of data (15.5 GB), suggesting potential data exfiltration, compromised credentials, or insider threat activity.",
+      "action": "Isolate the source IP (10.0.0.55) from the network, identify the user account associated with the transfer, and audit the accessed files and destination."
     },
     {
       "event_name": "Port scan detected",
@@ -39,9 +39,9 @@
       },
       "threat_level": "HIGH",
       "score": 75,
-      "threat_type": "Reconnaissance",
-      "description": "An internal host (172.16.0.200) performed a rapid scan of 1000 ports, suggesting active network discovery and potential lateral movement preparation by a compromised asset.",
-      "action": "Isolate the host at 172.16.0.200 immediately, terminate active connections, and perform a forensic investigation on the source device."
+      "threat_type": "Internal Reconnaissance",
+      "description": "An internal host (172.16.0.200) performed a rapid scan of 1000 ports. This is highly indicative of a compromised internal asset conducting reconnaissance for lateral movement.",
+      "action": "Isolate the host at 172.16.0.200 from the network immediately, terminate its active sessions, and initiate an incident response investigation to determine the root cause of the compromise."
     }
   ]
 }
