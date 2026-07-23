@@ -1,5 +1,5 @@
 {
-  "scan_time": "2026-07-23 08:41:34",
+  "scan_time": "2026-07-23 19:37:37",
   "critical_count": 0,
   "high_count": 2,
   "total_events": 3,
@@ -14,8 +14,8 @@
       "threat_level": "HIGH",
       "score": 75,
       "threat_type": "Brute Force Attack",
-      "description": "A high volume of failed login attempts (50) from a single IP address indicates an active brute-force or credential stuffing attempt.",
-      "action": "Block IP 192.168.1.100, check affected user accounts for compromise, and enforce multi-factor authentication."
+      "description": "50 consecutive failed login attempts detected from internal IP 192.168.1.100, indicating a potential automated brute-force or credential stuffing attempt.",
+      "action": "Block IP address 192.168.1.100, inspect the source device for potential malware or compromise, and enforce multi-factor authentication."
     },
     {
       "event_name": "Unusual data download",
@@ -27,8 +27,8 @@
       "threat_level": "HIGH",
       "score": 75,
       "threat_type": "Data Exfiltration",
-      "description": "An internal host (10.0.0.55) downloaded an unusually large volume of data (15.5 GB), indicating potential insider threat or account compromise.",
-      "action": "Isolate IP 10.0.0.55 from the network, revoke active user credentials, and audit data access logs."
+      "description": "An internal host (10.0.0.55) performed an anomalous large volume data download of 15.5 GB, indicating potential insider threat or compromised credentials.",
+      "action": "Isolate IP 10.0.0.55, revoke active user session tokens, and review data access logs to identify the compromised assets."
     },
     {
       "event_name": "Port scan detected",
@@ -39,9 +39,9 @@
       },
       "threat_level": "MEDIUM",
       "score": 65,
-      "threat_type": "Reconnaissance",
-      "description": "An internal IP address (172.16.0.200) performed a port scan across 1000 ports, indicating active network discovery by a potentially compromised host or unauthorized tool.",
-      "action": "Isolate IP 172.16.0.200 from the network, inspect the endpoint for malware/unauthorized tools, and review firewall logs."
+      "threat_type": "Internal Reconnaissance",
+      "description": "An internal IP address (172.16.0.200) scanned 1000 ports, indicating potential host compromise, unauthorized security testing, or network probing for lateral movement.",
+      "action": "Isolate host 172.16.0.200 from the network, inspect system logs for unauthorized activity or malware, and temporarily block traffic from this IP."
     }
   ]
 }
