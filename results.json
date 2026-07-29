@@ -1,5 +1,5 @@
 {
-  "scan_time": "2026-07-28 19:43:44",
+  "scan_time": "2026-07-29 08:51:43",
   "critical_count": 0,
   "high_count": 2,
   "total_events": 3,
@@ -14,8 +14,8 @@
       "threat_level": "HIGH",
       "score": 75,
       "threat_type": "Brute Force Attack",
-      "description": "High volume of rapid failed login attempts from a single internal IP address indicating a potential credential stuffing or brute force attack.",
-      "action": "Temporarily block IP 192.168.1.100, enforce password resets for targeted accounts, and scan the source host for compromise."
+      "description": "50 consecutive failed login attempts detected from IP 192.168.1.100, indicating an automated brute-force or credential-stuffing attempt.",
+      "action": "Block IP 192.168.1.100 at the firewall/WAF, enable multi-factor authentication, and check targeted accounts for compromise."
     },
     {
       "event_name": "Unusual data download",
@@ -27,8 +27,8 @@
       "threat_level": "HIGH",
       "score": 75,
       "threat_type": "Data Exfiltration",
-      "description": "An unusually large data download of 15.5 GB was detected from internal IP 10.0.0.55, which may indicate compromise or an insider threat attempting to exfiltrate sensitive cloud data.",
-      "action": "Isolate IP 10.0.0.55, revoke active session tokens for the associated user, and audit cloud storage logs to identify accessed files."
+      "description": "Internal host 10.0.0.55 downloaded an unusually large amount of data (15.5 GB), indicating potential insider threat or compromised asset exfiltrating sensitive data.",
+      "action": "Isolate IP 10.0.0.55 from the network, revoke user session tokens, review access logs for affected storage, and initiate incident response."
     },
     {
       "event_name": "Port scan detected",
@@ -39,9 +39,9 @@
       },
       "threat_level": "MEDIUM",
       "score": 65,
-      "threat_type": "Reconnaissance",
-      "description": "An internal IP address scanned 1000 ports, indicating active network discovery which may precede a targeted attack.",
-      "action": "Isolate host 172.16.0.200, inspect running processes, and review security group/firewall logs."
+      "threat_type": "Network Reconnaissance",
+      "description": "Internal host 172.16.0.200 scanned 1000 ports, indicating potential internal reconnaissance or a compromised system attempting lateral movement.",
+      "action": "Isolate host 172.16.0.200, inspect running processes for unauthorized scanning tools, and review VPC flow logs."
     }
   ]
 }
