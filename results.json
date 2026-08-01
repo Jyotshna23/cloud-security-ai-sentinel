@@ -1,5 +1,5 @@
 {
-  "scan_time": "2026-08-01 13:44:26 UTC",
+  "scan_time": "2026-08-01 19:20:18 UTC",
   "critical_count": 0,
   "high_count": 1,
   "total_events": 5,
@@ -14,9 +14,9 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "A high volume of 50 failed login attempts detected in a short time frame from IP 192.168.1.100, indicating an automated brute force or credential stuffing attack.",
-      "action": "Block IP address 192.168.1.100, enforce multi-factor authentication (MFA), rate-limit login endpoints, and verify if any targeted accounts were compromised.",
-      "score": 75
+      "description": "High volume of failed login attempts (50) from a single IP address indicates an automated brute force or credential stuffing attempt.",
+      "action": "Block IP 192.168.1.100, inspect host logs for compromise, and force password resets for targeted accounts.",
+      "score": 80
     },
     {
       "event_name": "Unusual data download",
