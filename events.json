@@ -1,0 +1,7 @@
+[
+  {"event": "Failed login attempt", "ip": "192.168.1.100", "attempts": 50, "timestamp": "2026-08-01T02:00:00Z"},
+  {"event": "Unusual data download", "ip": "10.0.0.55", "size_gb": 15.5, "timestamp": "2026-08-01T02:05:00Z"},
+  {"event": "Port scan detected", "ip": "172.16.0.200", "ports_scanned": 1000, "timestamp": "2026-08-01T02:10:00Z"},
+  {"event": "New admin role granted", "ip": "10.0.0.12", "user": "svc-deploy", "timestamp": "2026-08-01T02:15:00Z"},
+  {"event": "API key used from new location", "ip": "203.0.113.5", "country": "Unknown", "timestamp": "2026-08-01T02:20:00Z"}
+]
