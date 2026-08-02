@@ -15,10 +15,40 @@ th{color:#4dabf7;}
 </style></head>
 <body>
 <h1>Cloud Security AI Sentinel - Live Dashboard</h1>
-<p>Automatically updated every 6 hours via GitHub Actions. Last 5 scans shown.</p>
+<p>Automatically updated every 6 hours via GitHub Actions. Last 6 scans shown.</p>
 <table>
 <tr><th>Scan Time</th><th>Event</th><th>Threat Level</th><th>Score</th><th>AI Analysis</th></tr>
 <tr>
+<td>2026-08-02 13:44:20 UTC</td>
+<td>Failed login attempt</td>
+<td class="level-high">HIGH</td>
+<td>80</td>
+<td>A high volume of 50 failed login attempts detected from internal IP 192.168.1.100 during off-hours, indicating a brute force or credential stuffing attempt.</td>
+</tr><tr>
+<td>2026-08-02 13:44:20 UTC</td>
+<td>Unusual data download</td>
+<td class="level-high">HIGH</td>
+<td>75</td>
+<td>An internal host (10.0.0.55) transferred an unusually large volume of data (15.5 GB) during off-hours at 02:05 AM, indicating potential insider threat or compromised credentials.</td>
+</tr><tr>
+<td>2026-08-02 13:44:20 UTC</td>
+<td>Port scan detected</td>
+<td class="level-high">HIGH</td>
+<td>75</td>
+<td>An internal host (172.16.0.200) conducted a rapid scan of 1,000 ports, indicating network discovery activity likely originating from a compromised endpoint.</td>
+</tr><tr>
+<td>2026-08-02 13:44:20 UTC</td>
+<td>New admin role granted</td>
+<td class="level-high">HIGH</td>
+<td>75</td>
+<td>A deployment service account was granted administrative privileges during off-hours, indicating potential CI/CD pipeline compromise or unauthorized privilege elevation.</td>
+</tr><tr>
+<td>2026-08-02 13:44:20 UTC</td>
+<td>API key used from new location</td>
+<td class="level-high">HIGH</td>
+<td>75</td>
+<td>An API key was accessed from an unrecognized IP address and unknown country, indicating potential credential leakage or unauthorized remote access.</td>
+</tr><tr>
 <td>2026-08-02 08:33:37 UTC</td>
 <td>Failed login attempt</td>
 <td class="level-high">HIGH</td>
