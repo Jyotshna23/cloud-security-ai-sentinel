@@ -1,5 +1,5 @@
 {
-  "scan_time": "2026-08-03 10:00:28 UTC",
+  "scan_time": "2026-08-03 14:57:07 UTC",
   "critical_count": 0,
   "high_count": 4,
   "total_events": 5,
@@ -12,11 +12,11 @@
         "attempts": 50,
         "timestamp": "2026-08-01T02:00:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
-      "action": "Retry manually or check API quota",
-      "score": 0
+      "threat_level": "HIGH",
+      "threat_type": "Brute Force Attack",
+      "description": "A high volume of failed login attempts (50) originated from internal IP address 192.168.1.100 during off-hours, indicating an automated brute-force or credential stuffing attempt from a potentially compromised internal host.",
+      "action": "Isolate host 192.168.1.100 from the network, temporarily lock targeted user accounts, reset affected credentials, and inspect the source IP for malware or unauthorized activity.",
+      "score": 80
     },
     {
       "event_name": "Unusual data download",
@@ -28,8 +28,8 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Data Exfiltration",
-      "description": "An internal host (10.0.0.55) downloaded an abnormally large amount of data (15.5 GB) during off-peak hours, indicating potential credential compromise or insider threat.",
-      "action": "Isolate IP 10.0.0.55 from the network, revoke user session tokens, and audit access logs to identify the compromised user account and targeted data.",
+      "description": "An internal IP (10.0.0.55) downloaded an unusually large volume of data (15.5 GB) during off-peak hours (02:05 UTC), suggesting potential data exfiltration or compromised internal credentials.",
+      "action": "Isolate the host at 10.0.0.55, revoke active user sessions associated with this download, and review cloud storage audit logs to identify compromised data.",
       "score": 75
     },
     {
@@ -40,10 +40,10 @@
         "ports_scanned": 1000,
         "timestamp": "2026-08-01T02:10:00Z"
       },
-      "threat_level": "HIGH",
-      "threat_type": "Network Reconnaissance",
-      "description": "An internal host (172.16.0.200) performed a large-scale port scan across 1000 ports, indicating potential host compromise or internal network probing.",
-      "action": "Isolate host 172.16.0.200, inspect running processes and active connections, and block unauthorized internal lateral movement.",
+      "threat_level": "MEDIUM",
+      "threat_type": "Reconnaissance",
+      "description": "An internal or local network host (172.16.0.200) performed a large-scale port scan across 1000 ports, indicating active network discovery and potential vulnerability probing.",
+      "action": "Block or isolate IP 172.16.0.200, investigate the source machine for potential compromise, and review firewall logs for associated suspicious traffic.",
       "score": 75
     },
     {
@@ -56,9 +56,9 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Privilege Escalation",
-      "description": "A service account (svc-deploy) was granted administrative privileges off-hours from an internal IP address.",
-      "action": "Revoke admin access for svc-deploy immediately, review audit logs to identify who granted the role, and verify pipeline activity.",
-      "score": 75
+      "description": "A deployment service account (svc-deploy) was granted administrative privileges off-hours, indicating potential unauthorized privilege escalation or excessive permission drift.",
+      "action": "Immediately revoke the admin role from svc-deploy, audit the entity that granted the permission, and review recent activity logs for this service account.",
+      "score": 80
     },
     {
       "event_name": "API key used from new location",
@@ -70,8 +70,8 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Anomalous API Key Usage",
-      "description": "An API key was utilized from an unrecognized IP address and unknown geographic location, indicating potential credential compromise or unauthorized access.",
-      "action": "Revoke or rotate the API key immediately, review access logs for malicious activity, and enforce IP whitelisting.",
+      "description": "An API key was used from an unrecognized IP address in an unknown country, indicating potential credential theft or unauthorized access.",
+      "action": "Revoke or rotate the compromised API key immediately, review API audit logs for unauthorized activity, and implement IP restriction rules.",
       "score": 75
     }
   ]
