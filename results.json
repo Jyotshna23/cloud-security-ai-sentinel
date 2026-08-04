@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-08-04 03:25:15 UTC",
+  "scan_time": "2026-08-04 08:50:06 UTC",
   "critical_count": 0,
-  "high_count": 3,
+  "high_count": 5,
   "total_events": 5,
   "events": [
     {
@@ -14,9 +14,9 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "50 consecutive failed login attempts detected from IP 192.168.1.100 during off-hours, indicating an automated brute force or credential stuffing attack.",
-      "action": "Block or throttle IP 192.168.1.100, review targeted user accounts for potential compromise, enforce multi-factor authentication (MFA), and audit authentication logs.",
-      "score": 80
+      "description": "A high volume of failed login attempts (50) detected from IP 192.168.1.100 indicates an automated password guessing or credential stuffing attempt.",
+      "action": "Temporarily block IP 192.168.1.100, enforce Multi-Factor Authentication (MFA), and review targeted user accounts for potential compromise.",
+      "score": 75
     },
     {
       "event_name": "Unusual data download",
@@ -28,8 +28,8 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Data Exfiltration",
-      "description": "An unusually large data download of 15.5 GB was initiated from internal IP 10.0.0.55 during off-peak hours (02:05 UTC), indicating potential unauthorized data exfiltration or insider threat activity.",
-      "action": "Isolate IP 10.0.0.55 from the network, terminate associated user sessions, identify the data accessed, and review security logs for compromised credentials.",
+      "description": "An unusually large data download of 15.5 GB occurred during off-hours (02:05 AM UTC) from internal IP 10.0.0.55, indicating potential insider threat or compromised credentials.",
+      "action": "Isolate IP 10.0.0.55, revoke active user sessions associated with the transfer, and audit accessed data logs.",
       "score": 75
     },
     {
@@ -40,11 +40,11 @@
         "ports_scanned": 1000,
         "timestamp": "2026-08-01T02:10:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
-      "action": "Retry manually or check API quota",
-      "score": 0
+      "threat_level": "HIGH",
+      "threat_type": "Network Reconnaissance",
+      "description": "Internal host 172.16.0.200 scanned 1000 ports, indicating potential network discovery or a compromised internal system attempting lateral movement.",
+      "action": "Isolate host 172.16.0.200 from the network, investigate running processes and active user sessions, and check firewall logs for follow-up exploitation attempts.",
+      "score": 75
     },
     {
       "event_name": "New admin role granted",
@@ -56,9 +56,9 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Privilege Escalation",
-      "description": "The service account 'svc-deploy' was granted administrator privileges off-hours, posing a risk of unauthorized privilege escalation or compromised automated pipeline credentials.",
-      "action": "Revoke administrative privileges from 'svc-deploy', audit recent activity initiated by IP 10.0.0.12, and verify if the role assignment was authorized.",
-      "score": 80
+      "description": "A deployment service account was granted full administrative privileges, increasing the attack surface and potential impact if the credentials are compromised.",
+      "action": "Verify if the privilege grant was authorized via change management. If unauthorized, immediately revoke the admin privileges and audit actions taken by 'svc-deploy'.",
+      "score": 75
     },
     {
       "event_name": "API key used from new location",
@@ -68,11 +68,11 @@
         "country": "Unknown",
         "timestamp": "2026-08-01T02:20:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
-      "action": "Retry manually or check API quota",
-      "score": 0
+      "threat_level": "HIGH",
+      "threat_type": "Unauthorized API Key Usage",
+      "description": "An API key was used from an unrecognized IP address and unknown geographic location, indicating potential credential exposure or theft.",
+      "action": "Revoke the affected API key immediately, review API access logs for unauthorized actions, and enforce IP restriction policies.",
+      "score": 75
     }
   ]
 }
