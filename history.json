@@ -856,5 +856,83 @@
         "score": 0
       }
     ]
+  },
+  {
+    "scan_time": "2026-08-04 03:25:15 UTC",
+    "critical_count": 0,
+    "high_count": 3,
+    "total_events": 5,
+    "events": [
+      {
+        "event_name": "Failed login attempt",
+        "raw_event": {
+          "event": "Failed login attempt",
+          "ip": "192.168.1.100",
+          "attempts": 50,
+          "timestamp": "2026-08-01T02:00:00Z"
+        },
+        "threat_level": "HIGH",
+        "threat_type": "Brute Force Attack",
+        "description": "50 consecutive failed login attempts detected from IP 192.168.1.100 during off-hours, indicating an automated brute force or credential stuffing attack.",
+        "action": "Block or throttle IP 192.168.1.100, review targeted user accounts for potential compromise, enforce multi-factor authentication (MFA), and audit authentication logs.",
+        "score": 80
+      },
+      {
+        "event_name": "Unusual data download",
+        "raw_event": {
+          "event": "Unusual data download",
+          "ip": "10.0.0.55",
+          "size_gb": 15.5,
+          "timestamp": "2026-08-01T02:05:00Z"
+        },
+        "threat_level": "HIGH",
+        "threat_type": "Data Exfiltration",
+        "description": "An unusually large data download of 15.5 GB was initiated from internal IP 10.0.0.55 during off-peak hours (02:05 UTC), indicating potential unauthorized data exfiltration or insider threat activity.",
+        "action": "Isolate IP 10.0.0.55 from the network, terminate associated user sessions, identify the data accessed, and review security logs for compromised credentials.",
+        "score": 75
+      },
+      {
+        "event_name": "Port scan detected",
+        "raw_event": {
+          "event": "Port scan detected",
+          "ip": "172.16.0.200",
+          "ports_scanned": 1000,
+          "timestamp": "2026-08-01T02:10:00Z"
+        },
+        "threat_level": "UNKNOWN",
+        "threat_type": "analysis_error",
+        "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+        "action": "Retry manually or check API quota",
+        "score": 0
+      },
+      {
+        "event_name": "New admin role granted",
+        "raw_event": {
+          "event": "New admin role granted",
+          "ip": "10.0.0.12",
+          "user": "svc-deploy",
+          "timestamp": "2026-08-01T02:15:00Z"
+        },
+        "threat_level": "HIGH",
+        "threat_type": "Privilege Escalation",
+        "description": "The service account 'svc-deploy' was granted administrator privileges off-hours, posing a risk of unauthorized privilege escalation or compromised automated pipeline credentials.",
+        "action": "Revoke administrative privileges from 'svc-deploy', audit recent activity initiated by IP 10.0.0.12, and verify if the role assignment was authorized.",
+        "score": 80
+      },
+      {
+        "event_name": "API key used from new location",
+        "raw_event": {
+          "event": "API key used from new location",
+          "ip": "203.0.113.5",
+          "country": "Unknown",
+          "timestamp": "2026-08-01T02:20:00Z"
+        },
+        "threat_level": "UNKNOWN",
+        "threat_type": "analysis_error",
+        "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+        "action": "Retry manually or check API quota",
+        "score": 0
+      }
+    ]
   }
 ]
