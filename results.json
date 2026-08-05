@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-08-05 03:20:20 UTC",
+  "scan_time": "2026-08-05 08:47:12 UTC",
   "critical_count": 0,
-  "high_count": 3,
+  "high_count": 5,
   "total_events": 5,
   "events": [
     {
@@ -14,8 +14,8 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "High volume of failed login attempts (50) from IP 192.168.1.100 indicating a possible automated brute force or credential stuffing attempt.",
-      "action": "Block source IP 192.168.1.100, verify if any attempts succeeded, and enforce multi-factor authentication (MFA) across user accounts.",
+      "description": "High volume of failed login attempts (50) from a single IP address indicates an automated brute-force or credential-stuffing attack.",
+      "action": "Block IP address 192.168.1.100, inspect compromised host, enforce MFA, and reset passwords for affected accounts.",
       "score": 75
     },
     {
@@ -28,9 +28,9 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Data Exfiltration",
-      "description": "An unusually large volume of data (15.5 GB) was downloaded from internal IP 10.0.0.55 during off-peak hours (02:05 UTC), indicating potential data exfiltration or a compromised host.",
-      "action": "Isolate host 10.0.0.55 from the network, revoke active credentials associated with the session, and audit accessed data sources.",
-      "score": 85
+      "description": "An unusually large data transfer of 15.5 GB originated from internal IP 10.0.0.55 during off-hours (02:05 UTC), indicating potential unauthorized data exfiltration or a compromised internal host.",
+      "action": "Isolate IP 10.0.0.55, terminate active user sessions associated with the activity, and analyze network flow logs to identify the destination and downloaded assets.",
+      "score": 75
     },
     {
       "event_name": "Port scan detected",
@@ -40,10 +40,10 @@
         "ports_scanned": 1000,
         "timestamp": "2026-08-01T02:10:00Z"
       },
-      "threat_level": "MEDIUM",
-      "threat_type": "Network Reconnaissance",
-      "description": "An internal host (172.16.0.200) performed a large-scale port scan across 1000 ports, indicating potential network discovery, lateral movement, or host compromise.",
-      "action": "Isolate source IP 172.16.0.200, inspect running processes on the host, and review VPC flow logs for targeted endpoints.",
+      "threat_level": "HIGH",
+      "threat_type": "Reconnaissance",
+      "description": "Internal host 172.16.0.200 conducted a large-scale port scan across 1000 ports, indicating potential network discovery or a compromised asset seeking lateral movement targets.",
+      "action": "Isolate 172.16.0.200 from the network, audit active processes for unauthorized scanning utilities, and review recent host authentication logs.",
       "score": 75
     },
     {
@@ -54,11 +54,11 @@
         "user": "svc-deploy",
         "timestamp": "2026-08-01T02:15:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
-      "action": "Retry manually or check API quota",
-      "score": 0
+      "threat_level": "HIGH",
+      "threat_type": "Privilege Escalation",
+      "description": "The service account 'svc-deploy' was granted administrative privileges, introducing a high-risk privilege escalation vector if the account is compromised or the grant was unauthorized.",
+      "action": "Verify authorization against change management logs, review recent activity performed by 'svc-deploy', and revoke the admin role immediately if unapproved.",
+      "score": 75
     },
     {
       "event_name": "API key used from new location",
@@ -69,9 +69,9 @@
         "timestamp": "2026-08-01T02:20:00Z"
       },
       "threat_level": "HIGH",
-      "threat_type": "Anomalous API Access",
-      "description": "An API key was used from an unverified IP address and unknown geographic location, indicating potential credential leakage or compromise.",
-      "action": "Revoke the impacted API key immediately, audit recent API activity from IP 203.0.113.5, and enforce IP restriction rules.",
+      "threat_type": "API Key Compromise",
+      "description": "An API key was used from an unrecognized IP address and an unmapped geographic location, indicating potential credential theft or unauthorized access.",
+      "action": "Revoke or rotate the API key immediately, audit recent API logs for suspicious activity, and restrict key usage with IP whitelisting.",
       "score": 75
     }
   ]
