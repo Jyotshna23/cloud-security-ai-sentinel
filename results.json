@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-08-05 19:46:26 UTC",
+  "scan_time": "2026-08-06 03:23:22 UTC",
   "critical_count": 0,
-  "high_count": 1,
+  "high_count": 0,
   "total_events": 5,
   "events": [
     {
@@ -54,11 +54,11 @@
         "user": "svc-deploy",
         "timestamp": "2026-08-01T02:15:00Z"
       },
-      "threat_level": "HIGH",
-      "threat_type": "Privilege Escalation",
-      "description": "A service account (svc-deploy) was granted administrative privileges, violating the principle of least privilege and creating a high risk of compromise if the credentials are leaked.",
-      "action": "Immediately audit the role assignment, revoke admin privileges from svc-deploy if unintended, and review recent activity associated with IP 10.0.0.12.",
-      "score": 80
+      "threat_level": "UNKNOWN",
+      "threat_type": "analysis_error",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "action": "Retry manually or check API quota",
+      "score": 0
     },
     {
       "event_name": "API key used from new location",
