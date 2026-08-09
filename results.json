@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-08-08 18:49:18 UTC",
+  "scan_time": "2026-08-09 02:18:47 UTC",
   "critical_count": 0,
-  "high_count": 2,
+  "high_count": 1,
   "total_events": 5,
   "events": [
     {
@@ -14,8 +14,8 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "High volume of failed login attempts (50) from IP 192.168.1.100 in a short period, indicating an automated brute-force or credential-stuffing attempt.",
-      "action": "Block IP address 192.168.1.100, enforce rate limiting, review target user accounts for potential compromise, and ensure MFA is enforced.",
+      "description": "High volume of rapid failed login attempts originating from an internal IP address, indicating an ongoing brute-force or credential stuffing attempt.",
+      "action": "Temporarily block traffic from 192.168.1.100, audit targeted user accounts, enforce multi-factor authentication, and check the host for potential malware or compromise.",
       "score": 75
     },
     {
@@ -54,11 +54,11 @@
         "user": "svc-deploy",
         "timestamp": "2026-08-01T02:15:00Z"
       },
-      "threat_level": "HIGH",
-      "threat_type": "Privilege Escalation",
-      "description": "A deployment service account (svc-deploy) was granted administrative privileges, violating the principle of least privilege and creating a risk of unauthorized high-level access.",
-      "action": "Immediately revoke administrative privileges from svc-deploy, audit the IAM policy change logs to identify who granted the role, and review recent account activity.",
-      "score": 75
+      "threat_level": "UNKNOWN",
+      "threat_type": "analysis_error",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "action": "Retry manually or check API quota",
+      "score": 0
     },
     {
       "event_name": "API key used from new location",
