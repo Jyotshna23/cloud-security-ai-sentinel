@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-08-09 18:52:26 UTC",
+  "scan_time": "2026-08-10 02:23:38 UTC",
   "critical_count": 0,
-  "high_count": 3,
+  "high_count": 2,
   "total_events": 5,
   "events": [
     {
@@ -14,9 +14,9 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "High volume of failed login attempts from a single IP address indicating an automated attempt to guess user credentials.",
-      "action": "Temporarily block the source IP address, audit targeted user accounts, enforce multi-factor authentication (MFA), and prompt password resets if necessary.",
-      "score": 80
+      "description": "A high volume of 50 failed login attempts originating from IP 192.168.1.100 indicates an automated brute force or credential stuffing attempt.",
+      "action": "Block the IP address, review affected user accounts, enforce multi-factor authentication, and investigate the internal host associated with the IP.",
+      "score": 75
     },
     {
       "event_name": "Unusual data download",
@@ -28,8 +28,8 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Data Exfiltration",
-      "description": "An unusually large volume of data (15.5 GB) was downloaded during off-hours (02:05 AM) from internal IP 10.0.0.55, suggesting potential unauthorized data exfiltration or account compromise.",
-      "action": "Isolate internal host 10.0.0.55, revoke user session tokens, and investigate the source/destination of the transferred files.",
+      "description": "An unusually large data download of 15.5 GB was initiated from internal IP 10.0.0.55 during off-hours (02:05 UTC), indicating potential unauthorized data exfiltration or account compromise.",
+      "action": "Isolate host 10.0.0.55, revoke credentials for the associated user account, terminate active sessions, and review audit logs to determine the scope of accessed data.",
       "score": 75
     },
     {
@@ -40,11 +40,11 @@
         "ports_scanned": 1000,
         "timestamp": "2026-08-01T02:10:00Z"
       },
-      "threat_level": "MEDIUM",
-      "threat_type": "Internal Reconnaissance",
-      "description": "An internal host (172.16.0.200) performed a sequential scan of 1000 ports, indicating potential network discovery or a compromised host attempting lateral movement.",
-      "action": "Isolate host 172.16.0.200, review network traffic and host security logs, and verify if the scan was authorized.",
-      "score": 65
+      "threat_level": "UNKNOWN",
+      "threat_type": "analysis_error",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "action": "Retry manually or check API quota",
+      "score": 0
     },
     {
       "event_name": "New admin role granted",
@@ -68,11 +68,11 @@
         "country": "Unknown",
         "timestamp": "2026-08-01T02:20:00Z"
       },
-      "threat_level": "HIGH",
-      "threat_type": "Unauthorized API Access / Credential Exposure",
-      "description": "An API key was executed from an unrecognized IP address with an unidentifiable country location, which may indicate that the key has been leaked or intercepted.",
-      "action": "Immediately revoke and rotate the API key, inspect recent API request logs for malicious activity, and implement IP whitelisting constraints for API usage.",
-      "score": 75
+      "threat_level": "UNKNOWN",
+      "threat_type": "analysis_error",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "action": "Retry manually or check API quota",
+      "score": 0
     }
   ]
 }

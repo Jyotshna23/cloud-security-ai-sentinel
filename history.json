@@ -1,83 +1,5 @@
 [
   {
-    "scan_time": "2026-08-02 08:33:37 UTC",
-    "critical_count": 0,
-    "high_count": 5,
-    "total_events": 5,
-    "events": [
-      {
-        "event_name": "Failed login attempt",
-        "raw_event": {
-          "event": "Failed login attempt",
-          "ip": "192.168.1.100",
-          "attempts": 50,
-          "timestamp": "2026-08-01T02:00:00Z"
-        },
-        "threat_level": "HIGH",
-        "threat_type": "Brute Force Attack",
-        "description": "High volume of failed login attempts (50) detected from a single IP address, indicating a potential brute-force or credential-stuffing attack.",
-        "action": "Block source IP 192.168.1.100, enforce multi-factor authentication (MFA), and inspect targeted accounts for unauthorized access.",
-        "score": 75
-      },
-      {
-        "event_name": "Unusual data download",
-        "raw_event": {
-          "event": "Unusual data download",
-          "ip": "10.0.0.55",
-          "size_gb": 15.5,
-          "timestamp": "2026-08-01T02:05:00Z"
-        },
-        "threat_level": "HIGH",
-        "threat_type": "Data Exfiltration",
-        "description": "Unusually large off-hours data download of 15.5 GB detected from internal IP address 10.0.0.55, indicating potential insider threat or compromised credentials.",
-        "action": "Isolate internal host 10.0.0.55, revoke active user sessions associated with the IP, and audit cloud storage access logs to identify exfiltrated data.",
-        "score": 75
-      },
-      {
-        "event_name": "Port scan detected",
-        "raw_event": {
-          "event": "Port scan detected",
-          "ip": "172.16.0.200",
-          "ports_scanned": 1000,
-          "timestamp": "2026-08-01T02:10:00Z"
-        },
-        "threat_level": "HIGH",
-        "threat_type": "Internal Reconnaissance",
-        "description": "An internal host (172.16.0.200) performed a large-scale port scan across 1000 ports, indicating potential network discovery or a compromised internal system attempting lateral movement.",
-        "action": "Isolate host 172.16.0.200, inspect running processes and system logs, and verify whether the scanning activity was authorized.",
-        "score": 75
-      },
-      {
-        "event_name": "New admin role granted",
-        "raw_event": {
-          "event": "New admin role granted",
-          "ip": "10.0.0.12",
-          "user": "svc-deploy",
-          "timestamp": "2026-08-01T02:15:00Z"
-        },
-        "threat_level": "HIGH",
-        "threat_type": "Privilege Escalation",
-        "description": "Service account 'svc-deploy' was granted administrator privileges off-hours from an internal IP address, posing a risk of identity compromise and unauthorized elevated access.",
-        "action": "Revoke the admin role immediately, review recent activity by 'svc-deploy', and verify if the role assignment was authorized via change management.",
-        "score": 85
-      },
-      {
-        "event_name": "API key used from new location",
-        "raw_event": {
-          "event": "API key used from new location",
-          "ip": "203.0.113.5",
-          "country": "Unknown",
-          "timestamp": "2026-08-01T02:20:00Z"
-        },
-        "threat_level": "HIGH",
-        "threat_type": "Anomalous API Key Access",
-        "description": "An API key was accessed from an unrecognized IP address with an unknown geographic location, suggesting potential credential theft or unauthorized exposure.",
-        "action": "Immediately revoke or rotate the API key, inspect audit logs for unauthorized activity performed with this key, and implement IP whitelisting.",
-        "score": 75
-      }
-    ]
-  },
-  {
     "scan_time": "2026-08-02 13:44:20 UTC",
     "critical_count": 0,
     "high_count": 5,
@@ -2336,6 +2258,84 @@
         "description": "An API key was executed from an unrecognized IP address with an unidentifiable country location, which may indicate that the key has been leaked or intercepted.",
         "action": "Immediately revoke and rotate the API key, inspect recent API request logs for malicious activity, and implement IP whitelisting constraints for API usage.",
         "score": 75
+      }
+    ]
+  },
+  {
+    "scan_time": "2026-08-10 02:23:38 UTC",
+    "critical_count": 0,
+    "high_count": 2,
+    "total_events": 5,
+    "events": [
+      {
+        "event_name": "Failed login attempt",
+        "raw_event": {
+          "event": "Failed login attempt",
+          "ip": "192.168.1.100",
+          "attempts": 50,
+          "timestamp": "2026-08-01T02:00:00Z"
+        },
+        "threat_level": "HIGH",
+        "threat_type": "Brute Force Attack",
+        "description": "A high volume of 50 failed login attempts originating from IP 192.168.1.100 indicates an automated brute force or credential stuffing attempt.",
+        "action": "Block the IP address, review affected user accounts, enforce multi-factor authentication, and investigate the internal host associated with the IP.",
+        "score": 75
+      },
+      {
+        "event_name": "Unusual data download",
+        "raw_event": {
+          "event": "Unusual data download",
+          "ip": "10.0.0.55",
+          "size_gb": 15.5,
+          "timestamp": "2026-08-01T02:05:00Z"
+        },
+        "threat_level": "HIGH",
+        "threat_type": "Data Exfiltration",
+        "description": "An unusually large data download of 15.5 GB was initiated from internal IP 10.0.0.55 during off-hours (02:05 UTC), indicating potential unauthorized data exfiltration or account compromise.",
+        "action": "Isolate host 10.0.0.55, revoke credentials for the associated user account, terminate active sessions, and review audit logs to determine the scope of accessed data.",
+        "score": 75
+      },
+      {
+        "event_name": "Port scan detected",
+        "raw_event": {
+          "event": "Port scan detected",
+          "ip": "172.16.0.200",
+          "ports_scanned": 1000,
+          "timestamp": "2026-08-01T02:10:00Z"
+        },
+        "threat_level": "UNKNOWN",
+        "threat_type": "analysis_error",
+        "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+        "action": "Retry manually or check API quota",
+        "score": 0
+      },
+      {
+        "event_name": "New admin role granted",
+        "raw_event": {
+          "event": "New admin role granted",
+          "ip": "10.0.0.12",
+          "user": "svc-deploy",
+          "timestamp": "2026-08-01T02:15:00Z"
+        },
+        "threat_level": "UNKNOWN",
+        "threat_type": "analysis_error",
+        "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+        "action": "Retry manually or check API quota",
+        "score": 0
+      },
+      {
+        "event_name": "API key used from new location",
+        "raw_event": {
+          "event": "API key used from new location",
+          "ip": "203.0.113.5",
+          "country": "Unknown",
+          "timestamp": "2026-08-01T02:20:00Z"
+        },
+        "threat_level": "UNKNOWN",
+        "threat_type": "analysis_error",
+        "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+        "action": "Retry manually or check API quota",
+        "score": 0
       }
     ]
   }
