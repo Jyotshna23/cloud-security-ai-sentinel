@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-08-10 19:06:34 UTC",
+  "scan_time": "2026-08-11 02:15:05 UTC",
   "critical_count": 0,
-  "high_count": 2,
+  "high_count": 3,
   "total_events": 5,
   "events": [
     {
@@ -14,9 +14,9 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "Rapid succession of 50 failed login attempts from a single IP address indicates an automated brute force or credential stuffing attempt.",
-      "action": "Temporarily block the source IP address, force password resets for targeted user accounts, and enforce multi-factor authentication (MFA).",
-      "score": 75
+      "description": "50 failed login attempts detected from internal IP 192.168.1.100, indicating a potential brute-force or credential stuffing attack.",
+      "action": "Isolate the host at 192.168.1.100, temporarily block the IP, force password resets for targeted accounts, and review authentication logs.",
+      "score": 80
     },
     {
       "event_name": "Unusual data download",
@@ -28,8 +28,8 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Data Exfiltration",
-      "description": "An unusually large volume of data (15.5 GB) was downloaded from internal IP 10.0.0.55 during off-peak hours (02:05 UTC), indicating potential insider threat or compromised host exfiltration.",
-      "action": "Isolate host 10.0.0.55 from the network, revoke associated user credentials, and review access logs to identify affected data sources.",
+      "description": "An unusually large data transfer of 15.5 GB occurred during off-hours from internal IP 10.0.0.55, indicating potential data exfiltration or insider threat.",
+      "action": "Isolate host 10.0.0.55 from the network, revoke associated user credentials, and audit access logs for affected storage services.",
       "score": 75
     },
     {
@@ -54,11 +54,11 @@
         "user": "svc-deploy",
         "timestamp": "2026-08-01T02:15:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
-      "action": "Retry manually or check API quota",
-      "score": 0
+      "threat_level": "HIGH",
+      "threat_type": "Privilege Escalation",
+      "description": "Service account 'svc-deploy' was granted administrative privileges during off-hours, which may indicate a compromised deployment pipeline or unauthorized privilege escalation.",
+      "action": "Revoke the administrative privileges from 'svc-deploy' immediately, inspect audit logs for related actions, and verify authorization with the DevOps team.",
+      "score": 75
     },
     {
       "event_name": "API key used from new location",
