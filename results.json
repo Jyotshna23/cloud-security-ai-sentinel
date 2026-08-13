@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-08-12 19:11:55 UTC",
+  "scan_time": "2026-08-13 02:33:15 UTC",
   "critical_count": 0,
-  "high_count": 1,
+  "high_count": 2,
   "total_events": 5,
   "events": [
     {
@@ -14,8 +14,8 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "A high volume of failed login attempts (50) from a single IP address in a short time frame during off-hours indicates an automated brute-force or credential stuffing attack.",
-      "action": "Block IP address 192.168.1.100, check if any attempts succeeded, enforce multi-factor authentication (MFA), and prompt credential resets for targeted accounts.",
+      "description": "50 failed login attempts detected from IP 192.168.1.100, indicating an automated brute-force or credential-stuffing attempt.",
+      "action": "Block the source IP address, enforce multi-factor authentication, and check if any attempts were successful.",
       "score": 75
     },
     {
@@ -26,11 +26,11 @@
         "size_gb": 15.5,
         "timestamp": "2026-08-01T02:05:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
-      "action": "Retry manually or check API quota",
-      "score": 0
+      "threat_level": "HIGH",
+      "threat_type": "Data Exfiltration",
+      "description": "An off-hours, high-volume data download of 15.5 GB was initiated from internal IP 10.0.0.55, suggesting potential account compromise or unauthorized data transfer.",
+      "action": "Isolate IP 10.0.0.55 from the network, revoke active user session tokens, and review access logs to identify the impacted data stores.",
+      "score": 75
     },
     {
       "event_name": "Port scan detected",
