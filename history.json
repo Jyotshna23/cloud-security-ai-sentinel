@@ -1,83 +1,5 @@
 [
   {
-    "scan_time": "2026-08-07 07:35:09 UTC",
-    "critical_count": 0,
-    "high_count": 3,
-    "total_events": 5,
-    "events": [
-      {
-        "event_name": "Failed login attempt",
-        "raw_event": {
-          "event": "Failed login attempt",
-          "ip": "192.168.1.100",
-          "attempts": 50,
-          "timestamp": "2026-08-01T02:00:00Z"
-        },
-        "threat_level": "HIGH",
-        "threat_type": "Brute Force Attack",
-        "description": "High volume of failed login attempts (50) originating from internal IP 192.168.1.100 during off-hours, indicating a potential brute-force attack or misconfigured internal service.",
-        "action": "Block traffic from IP 192.168.1.100, inspect the source host for malware or automated scripts, enforce rate-limiting, and review target accounts for signs of compromise.",
-        "score": 75
-      },
-      {
-        "event_name": "Unusual data download",
-        "raw_event": {
-          "event": "Unusual data download",
-          "ip": "10.0.0.55",
-          "size_gb": 15.5,
-          "timestamp": "2026-08-01T02:05:00Z"
-        },
-        "threat_level": "UNKNOWN",
-        "threat_type": "analysis_error",
-        "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
-        "action": "Retry manually or check API quota",
-        "score": 0
-      },
-      {
-        "event_name": "Port scan detected",
-        "raw_event": {
-          "event": "Port scan detected",
-          "ip": "172.16.0.200",
-          "ports_scanned": 1000,
-          "timestamp": "2026-08-01T02:10:00Z"
-        },
-        "threat_level": "MEDIUM",
-        "threat_type": "Reconnaissance",
-        "description": "Internal IP 172.16.0.200 performed a port scan across 1000 ports, indicating potential network mapping or lateral movement activity.",
-        "action": "Isolate the host at 172.16.0.200, review network logs, and inspect the machine for unauthorized scanning tools or malware.",
-        "score": 75
-      },
-      {
-        "event_name": "New admin role granted",
-        "raw_event": {
-          "event": "New admin role granted",
-          "ip": "10.0.0.12",
-          "user": "svc-deploy",
-          "timestamp": "2026-08-01T02:15:00Z"
-        },
-        "threat_level": "HIGH",
-        "threat_type": "Privilege Escalation",
-        "description": "A deployment service account was granted administrator privileges outside standard business hours, indicating potential credential compromise or unauthorized access elevation.",
-        "action": "Immediately revoke the admin role from svc-deploy, audit recent pipeline activities and logs associated with IP 10.0.0.12, and verify if this escalation was an authorized change.",
-        "score": 75
-      },
-      {
-        "event_name": "API key used from new location",
-        "raw_event": {
-          "event": "API key used from new location",
-          "ip": "203.0.113.5",
-          "country": "Unknown",
-          "timestamp": "2026-08-01T02:20:00Z"
-        },
-        "threat_level": "HIGH",
-        "threat_type": "Unauthorized API Access",
-        "description": "An API key was used from an unrecognized IP address in an unknown location, indicating potential credential leakage or compromised API keys.",
-        "action": "Revoke and rotate the API key immediately, review API audit logs for unauthorized actions from IP 203.0.113.5, and restrict key permissions and IP ranges.",
-        "score": 75
-      }
-    ]
-  },
-  {
     "scan_time": "2026-08-07 13:19:49 UTC",
     "critical_count": 0,
     "high_count": 4,
@@ -2336,6 +2258,84 @@
         "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
         "action": "Retry manually or check API quota",
         "score": 0
+      }
+    ]
+  },
+  {
+    "scan_time": "2026-08-14 19:03:36 UTC",
+    "critical_count": 0,
+    "high_count": 2,
+    "total_events": 5,
+    "events": [
+      {
+        "event_name": "Failed login attempt",
+        "raw_event": {
+          "event": "Failed login attempt",
+          "ip": "192.168.1.100",
+          "attempts": 50,
+          "timestamp": "2026-08-01T02:00:00Z"
+        },
+        "threat_level": "HIGH",
+        "threat_type": "Brute Force Attack",
+        "description": "High volume of consecutive failed login attempts from a single IP during off-peak hours, indicating potential automated credential guessing or compromised internal host.",
+        "action": "Temporarily block or rate-limit IP 192.168.1.100, enforce multi-factor authentication (MFA), and isolate the host for malware analysis.",
+        "score": 75
+      },
+      {
+        "event_name": "Unusual data download",
+        "raw_event": {
+          "event": "Unusual data download",
+          "ip": "10.0.0.55",
+          "size_gb": 15.5,
+          "timestamp": "2026-08-01T02:05:00Z"
+        },
+        "threat_level": "UNKNOWN",
+        "threat_type": "analysis_error",
+        "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
+        "action": "Retry manually or check API quota",
+        "score": 0
+      },
+      {
+        "event_name": "Port scan detected",
+        "raw_event": {
+          "event": "Port scan detected",
+          "ip": "172.16.0.200",
+          "ports_scanned": 1000,
+          "timestamp": "2026-08-01T02:10:00Z"
+        },
+        "threat_level": "UNKNOWN",
+        "threat_type": "analysis_error",
+        "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+        "action": "Retry manually or check API quota",
+        "score": 0
+      },
+      {
+        "event_name": "New admin role granted",
+        "raw_event": {
+          "event": "New admin role granted",
+          "ip": "10.0.0.12",
+          "user": "svc-deploy",
+          "timestamp": "2026-08-01T02:15:00Z"
+        },
+        "threat_level": "UNKNOWN",
+        "threat_type": "analysis_error",
+        "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+        "action": "Retry manually or check API quota",
+        "score": 0
+      },
+      {
+        "event_name": "API key used from new location",
+        "raw_event": {
+          "event": "API key used from new location",
+          "ip": "203.0.113.5",
+          "country": "Unknown",
+          "timestamp": "2026-08-01T02:20:00Z"
+        },
+        "threat_level": "HIGH",
+        "threat_type": "Anomalous API Key Usage",
+        "description": "An existing API key was used from an unrecognized IP address and unknown geographic region, indicating potential credential leakage or unauthorized access.",
+        "action": "Immediately revoke and rotate the affected API key, audit audit logs for suspicious activity from IP 203.0.113.5, and implement IP allowlisting.",
+        "score": 75
       }
     ]
   }
