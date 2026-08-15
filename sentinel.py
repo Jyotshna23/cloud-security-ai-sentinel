@@ -40,34 +40,30 @@ def cosine_similarity(vec_a, vec_b):
 
 def build_past_event_index(history):
     """
-    Flatten every event from every past scan into one list, each tagged
-    with an embedding, so a new event can be compared against everything
-    that's ever been analyzed - not just the most recent scan.
+    Flatten every event from every past scan into one list. Each of
+    these events already carries a cached "embedding" field (saved the
+    run it was first analyzed), so we never re-embed old events - that
+    was what was burning through the free-tier quota before.
     """
     indexed = []
     for scan in history:
         for e in scan.get("events", []):
-            indexed.append(e)
+            if "embedding" in e:  # older entries saved before caching won't have this
+                indexed.append(e)
     return indexed
 
 
-def retrieve_similar_events(event, past_index, past_embeddings, k=TOP_K):
+def retrieve_similar_events(query_vec, past_index, k=TOP_K):
     """
-    This is the retrieval step of RAG: instead of sending Gemini the raw
-    event with no memory of anything before it, we find the k most
-    similar past events (by embedding cosine similarity) and hand those
-    over as context. That's what lets the model say "this matches a
-    pattern seen before" instead of judging each event in isolation.
+    Retrieval step of RAG: compare the new event's embedding (computed
+    once, by the caller) against cached embeddings of past events, and
+    hand back the k most similar. No embedding calls happen in here -
+    that's what keeps this cheap even as history grows.
     """
     if not past_index:
         return []
 
-    query_vec = embed_text(json.dumps(event))
-    scored = []
-    for i, past_event in enumerate(past_index):
-        sim = cosine_similarity(query_vec, past_embeddings[i])
-        scored.append((sim, past_event))
-
+    scored = [(cosine_similarity(query_vec, e["embedding"]), e) for e in past_index]
     scored.sort(key=lambda x: x[0], reverse=True)
     return [e for _, e in scored[:k]]
 
@@ -117,24 +113,37 @@ def run_sentinel():
     history = load_history()
     scan_time = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
 
-    # Build the retrieval index once per run, not once per event -
-    # embedding every past event on every single event would be wasteful.
+    # Cached embeddings only - no API calls happen here, so this is free
+    # regardless of how large history has grown.
     past_index = build_past_event_index(history)
-    past_embeddings = [embed_text(json.dumps(e)) for e in past_index] if past_index else []
 
     results_list = []
     critical_count = high_count = 0
 
     for i, event in enumerate(events, 1):
         print(f"[Event {i}] Analyzing: {event.get('event')}...")
-        similar_events = retrieve_similar_events(event, past_index, past_embeddings)
+
+        # One embedding call per new event - used both to retrieve
+        # similar past events now, and cached below so this same event
+        # never needs to be re-embedded in a future run.
+        try:
+            event_vec = embed_text(json.dumps(event))
+        except Exception as e:
+            print(f"  Embedding failed, skipping retrieval for this event: {e}")
+            event_vec = None
+
+        similar_events = retrieve_similar_events(event_vec, past_index) if event_vec else []
         result = analyze_threat(event, similar_events)
         level = result["threat_level"]
         if level == "CRITICAL":
             critical_count += 1
         elif level == "HIGH":
             high_count += 1
-        results_list.append({"event_name": event.get("event"), "raw_event": event, **result})
+
+        entry = {"event_name": event.get("event"), "raw_event": event, **result}
+        if event_vec:
+            entry["embedding"] = event_vec
+        results_list.append(entry)
         time.sleep(2)
 
     output = {
