@@ -38,6 +38,10 @@ Cloud Security AI Sentinel uses Google Gemini AI to analyze cloud security event
 | Python | Core application logic |
 | GitHub Secrets | Secure API key management |
 
+## 🔍 RAG Architecture
+
+This pipeline uses retrieval-augmented generation for consistent threat scoring. Each analyzed event's embedding is cached in scan history. Before classifying a new event, the system retrieves the most similar past events (via cosine similarity over Gemini embeddings) and includes them as context in the prompt — so classification stays consistent with how similar events were judged before, rather than treating every event in isolation.
+
 ## 👩‍💻 Author
 
 **Jyotshna Pogiri** — Software Engineer | AI Security Enthusiast
