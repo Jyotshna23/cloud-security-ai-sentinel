@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-08-16 01:48:45 UTC",
+  "scan_time": "2026-08-16 06:52:02 UTC",
   "critical_count": 0,
-  "high_count": 0,
+  "high_count": 2,
   "total_events": 5,
   "events": [
     {
@@ -12,11 +12,11 @@
         "attempts": 50,
         "timestamp": "2026-08-01T02:00:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
-      "action": "Retry manually or check API quota",
-      "score": 0,
+      "threat_level": "HIGH",
+      "threat_type": "Brute Force Authentication",
+      "description": "50 consecutive failed login attempts detected from IP 192.168.1.100, indicating an active brute-force or credential stuffing attempt.",
+      "action": "Temporarily block or quarantine IP 192.168.1.100, analyze authentication logs to identify targeted user accounts, enforce password resets, and ensure multi-factor authentication is active.",
+      "score": 80,
       "embedding": [
         -0.012916797,
         0.013939643,
@@ -6188,11 +6188,11 @@
         "ports_scanned": 1000,
         "timestamp": "2026-08-01T02:10:00Z"
       },
-      "threat_level": "MEDIUM",
-      "threat_type": "Internal Network Reconnaissance",
-      "description": "Internal host 172.16.0.200 performed a port scan targeting 1000 ports, indicating potential compromise and internal network discovery activity.",
-      "action": "Isolate host 172.16.0.200, inspect running processes and authentication logs, and review VPC flow logs for subsequent unauthorized connection attempts.",
-      "score": 55,
+      "threat_level": "UNKNOWN",
+      "threat_type": "analysis_error",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "action": "Retry manually or check API quota",
+      "score": 0,
       "embedding": [
         -0.01130319,
         0.0035783502,
@@ -9276,11 +9276,11 @@
         "user": "svc-deploy",
         "timestamp": "2026-08-01T02:15:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
-      "action": "Retry manually or check API quota",
-      "score": 0,
+      "threat_level": "HIGH",
+      "threat_type": "Privilege Escalation",
+      "description": "The service account 'svc-deploy' was granted administrative privileges, posing a significant risk of unauthorized privilege escalation or service account compromise.",
+      "action": "Verify if the privilege escalation was authorized by an approved change request, review recent activity and audit logs for svc-deploy, and revoke the admin role if it violates the principle of least privilege.",
+      "score": 80,
       "embedding": [
         -0.015533213,
         0.013324568,
