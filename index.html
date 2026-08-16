@@ -19,6 +19,36 @@ th{color:#4dabf7;}
 <table>
 <tr><th>Scan Time</th><th>Event</th><th>Threat Level</th><th>Score</th><th>AI Analysis</th></tr>
 <tr>
+<td>2026-08-16 01:48:45 UTC</td>
+<td>Failed login attempt</td>
+<td class="level-unknown">UNKNOWN</td>
+<td>0</td>
+<td>Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info</td>
+</tr><tr>
+<td>2026-08-16 01:48:45 UTC</td>
+<td>Unusual data download</td>
+<td class="level-unknown">UNKNOWN</td>
+<td>0</td>
+<td>Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info</td>
+</tr><tr>
+<td>2026-08-16 01:48:45 UTC</td>
+<td>Port scan detected</td>
+<td class="level-medium">MEDIUM</td>
+<td>55</td>
+<td>Internal host 172.16.0.200 performed a port scan targeting 1000 ports, indicating potential compromise and internal network discovery activity.</td>
+</tr><tr>
+<td>2026-08-16 01:48:45 UTC</td>
+<td>New admin role granted</td>
+<td class="level-unknown">UNKNOWN</td>
+<td>0</td>
+<td>Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info</td>
+</tr><tr>
+<td>2026-08-16 01:48:45 UTC</td>
+<td>API key used from new location</td>
+<td class="level-unknown">UNKNOWN</td>
+<td>0</td>
+<td>Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info</td>
+</tr><tr>
 <td>2026-08-15 18:39:29 UTC</td>
 <td>Failed login attempt</td>
 <td class="level-unknown">UNKNOWN</td>
@@ -888,36 +918,6 @@ th{color:#4dabf7;}
 <td class="level-unknown">UNKNOWN</td>
 <td>0</td>
 <td>Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info</td>
-</tr><tr>
-<td>2026-08-08 13:03:33 UTC</td>
-<td>Failed login attempt</td>
-<td class="level-high">HIGH</td>
-<td>75</td>
-<td>High volume of failed login attempts (50 attempts) detected from a single IP address, indicating an automated brute-force or credential stuffing attack.</td>
-</tr><tr>
-<td>2026-08-08 13:03:33 UTC</td>
-<td>Unusual data download</td>
-<td class="level-high">HIGH</td>
-<td>75</td>
-<td>An unusually large data transfer of 15.5 GB occurred from internal IP 10.0.0.55 during off-peak hours, indicating potential unauthorized data exfiltration or compromised internal credentials.</td>
-</tr><tr>
-<td>2026-08-08 13:03:33 UTC</td>
-<td>Port scan detected</td>
-<td class="level-medium">MEDIUM</td>
-<td>75</td>
-<td>An internal host (172.16.0.200) performed a port scan across 1000 ports, indicating potential network discovery or lateral movement preparation.</td>
-</tr><tr>
-<td>2026-08-08 13:03:33 UTC</td>
-<td>New admin role granted</td>
-<td class="level-high">HIGH</td>
-<td>80</td>
-<td>Administrative privileges were granted to a service account (svc-deploy), violating the principle of least privilege and creating a high-risk vector for cloud environment compromise.</td>
-</tr><tr>
-<td>2026-08-08 13:03:33 UTC</td>
-<td>API key used from new location</td>
-<td class="level-high">HIGH</td>
-<td>75</td>
-<td>An API key was accessed from an unrecognized IP address and an unmapped location, suggesting potential credential exposure or unauthorized remote access.</td>
 </tr>
 </table>
 <p class="note">Note: events analyzed are simulated sample data (events.json), used to demonstrate an automated AI classification pipeline with retrieval-augmented context from scan history. Not connected to a live production cloud environment.</p>
