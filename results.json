@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-08-17 07:08:47 UTC",
+  "scan_time": "2026-08-17 12:57:42 UTC",
   "critical_count": 0,
-  "high_count": 3,
+  "high_count": 0,
   "total_events": 5,
   "events": [
     {
@@ -12,11 +12,11 @@
         "attempts": 50,
         "timestamp": "2026-08-01T02:00:00Z"
       },
-      "threat_level": "HIGH",
-      "threat_type": "Brute Force Attack",
-      "description": "A high volume of 50 consecutive failed login attempts detected from IP 192.168.1.100, indicating an automated brute force or credential guessing attack against authentication endpoints.",
-      "action": "Immediately block or rate-limit traffic from IP 192.168.1.100, inspect authentication logs to determine targeted accounts, enforce multi-factor authentication and password resets on affected accounts, and audit the source machine for unauthorized automated tools or malware.",
-      "score": 80,
+      "threat_level": "UNKNOWN",
+      "threat_type": "analysis_error",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "action": "Retry manually or check API quota",
+      "score": 0,
       "embedding": [
         -0.012916797,
         0.013939643,
@@ -3100,11 +3100,11 @@
         "size_gb": 15.5,
         "timestamp": "2026-08-01T02:05:00Z"
       },
-      "threat_level": "HIGH",
-      "threat_type": "Data Exfiltration",
-      "description": "An unusually large volume of data (15.5 GB) was transferred from internal host 10.0.0.55 during off-peak hours, indicating potential unauthorized data exfiltration.",
-      "action": "Isolate the host at 10.0.0.55 from the network, identify and disable the user account or credentials used for the transfer, revoke active session tokens, and inspect data repositories and destination endpoints.",
-      "score": 82,
+      "threat_level": "UNKNOWN",
+      "threat_type": "analysis_error",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "action": "Retry manually or check API quota",
+      "score": 0,
       "embedding": [
         -0.003880629,
         0.01726714,
@@ -6189,10 +6189,10 @@
         "timestamp": "2026-08-01T02:10:00Z"
       },
       "threat_level": "MEDIUM",
-      "threat_type": "Network Reconnaissance",
-      "description": "Internal host 172.16.0.200 scanned 1,000 ports, indicating possible host compromise and internal reconnaissance for lateral movement.",
+      "threat_type": "Internal Port Scan",
+      "description": "Internal host 172.16.0.200 scanned 1000 ports, indicating active network reconnaissance or a compromised internal system.",
       "action": "Isolate host 172.16.0.200, inspect running processes and authentication logs, and review VPC flow logs for subsequent unauthorized connection attempts.",
-      "score": 65,
+      "score": 55,
       "embedding": [
         -0.01130319,
         0.0035783502,
@@ -9278,7 +9278,7 @@
       },
       "threat_level": "UNKNOWN",
       "threat_type": "analysis_error",
-      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
       "action": "Retry manually or check API quota",
       "score": 0,
       "embedding": [
@@ -12364,11 +12364,11 @@
         "country": "Unknown",
         "timestamp": "2026-08-01T02:20:00Z"
       },
-      "threat_level": "HIGH",
-      "threat_type": "Credential Misuse / Anomalous Access",
-      "description": "An API key was accessed from an unrecognized external IP address with an unknown geographic origin, indicating possible credential exposure or unauthorized usage.",
-      "action": "Immediately revoke or rotate the API key, review audit logs for any unauthorized API requests originating from IP 203.0.113.5, and configure IP allowlisting restrictions.",
-      "score": 80,
+      "threat_level": "UNKNOWN",
+      "threat_type": "analysis_error",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "action": "Retry manually or check API quota",
+      "score": 0,
       "embedding": [
         0.008422641,
         0.0001296921,
