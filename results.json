@@ -1,5 +1,5 @@
 {
-  "scan_time": "2026-08-18 12:59:28 UTC",
+  "scan_time": "2026-08-18 18:48:56 UTC",
   "critical_count": 0,
   "high_count": 0,
   "total_events": 5,
@@ -3102,7 +3102,7 @@
       },
       "threat_level": "UNKNOWN",
       "threat_type": "analysis_error",
-      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
       "action": "Retry manually or check API quota",
       "score": 0,
       "embedding": [
@@ -6190,7 +6190,7 @@
       },
       "threat_level": "UNKNOWN",
       "threat_type": "analysis_error",
-      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
       "action": "Retry manually or check API quota",
       "score": 0,
       "embedding": [
@@ -9278,7 +9278,7 @@
       },
       "threat_level": "UNKNOWN",
       "threat_type": "analysis_error",
-      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
       "action": "Retry manually or check API quota",
       "score": 0,
       "embedding": [
