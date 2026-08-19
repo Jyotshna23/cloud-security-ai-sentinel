@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-08-19 01:43:44 UTC",
+  "scan_time": "2026-08-19 06:56:19 UTC",
   "critical_count": 0,
-  "high_count": 2,
+  "high_count": 1,
   "total_events": 5,
   "events": [
     {
@@ -14,8 +14,8 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "High volume of 50 failed login attempts from IP 192.168.1.100 indicates an active brute-force or credential stuffing attempt against authentication endpoints.",
-      "action": "Block or quarantine IP 192.168.1.100, inspect authentication logs to identify targeted accounts, investigate the host for compromised credentials or malicious scripts, and enforce password resets and MFA.",
+      "description": "A high volume of 50 failed login attempts originated from internal IP 192.168.1.100, indicating an automated credential stuffing or brute force attack.",
+      "action": "Temporarily block or quarantine IP 192.168.1.100, analyze authentication logs to identify targeted accounts, inspect the source host for unauthorized scripts or malware, and enforce password resets and MFA.",
       "score": 80,
       "embedding": [
         -0.012916797,
@@ -3100,11 +3100,11 @@
         "size_gb": 15.5,
         "timestamp": "2026-08-01T02:05:00Z"
       },
-      "threat_level": "HIGH",
-      "threat_type": "Data Exfiltration",
-      "description": "Anomalous off-hours transfer of 15.5 GB from internal host 10.0.0.55, indicating potential data exfiltration or unauthorized bulk data access.",
-      "action": "Isolate the host at 10.0.0.55 from the network, identify the user account initiating the transfer, revoke active session tokens, and audit destination endpoints and accessed repositories.",
-      "score": 82,
+      "threat_level": "UNKNOWN",
+      "threat_type": "analysis_error",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "action": "Retry manually or check API quota",
+      "score": 0,
       "embedding": [
         -0.003880629,
         0.01726714,
@@ -9278,7 +9278,7 @@
       },
       "threat_level": "UNKNOWN",
       "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
       "action": "Retry manually or check API quota",
       "score": 0,
       "embedding": [
