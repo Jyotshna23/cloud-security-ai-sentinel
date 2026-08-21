@@ -1,5 +1,5 @@
 {
-  "scan_time": "2026-08-21 01:47:49 UTC",
+  "scan_time": "2026-08-21 06:58:33 UTC",
   "critical_count": 0,
   "high_count": 1,
   "total_events": 5,
@@ -14,8 +14,8 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "High volume of failed login attempts (50 attempts) detected from internal IP 192.168.1.100, indicating an active automated password guessing or credential stuffing attempt.",
-      "action": "Immediately block or rate-limit IP 192.168.1.100, isolate the source host to investigate for malware or compromised credentials, review targeted user accounts, and enforce password resets along with multi-factor authentication.",
+      "description": "50 failed login attempts detected from internal IP 192.168.1.100, indicating an automated brute force or credential guessing attack against user accounts.",
+      "action": "Block or quarantine IP 192.168.1.100, investigate the source machine for compromise or unauthorized automation, review targeted usernames in the auth logs, and enforce password resets and MFA.",
       "score": 80,
       "embedding": [
         -0.012916797,
@@ -12366,7 +12366,7 @@
       },
       "threat_level": "UNKNOWN",
       "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
       "action": "Retry manually or check API quota",
       "score": 0,
       "embedding": [
