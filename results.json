@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-08-22 01:40:45 UTC",
+  "scan_time": "2026-08-22 06:52:04 UTC",
   "critical_count": 0,
-  "high_count": 1,
+  "high_count": 0,
   "total_events": 5,
   "events": [
     {
@@ -12,11 +12,11 @@
         "attempts": 50,
         "timestamp": "2026-08-01T02:00:00Z"
       },
-      "threat_level": "HIGH",
-      "threat_type": "Brute Force Attack",
-      "description": "High volume of 50 failed login attempts originating from IP 192.168.1.100, indicating a potential automated brute-force or credential stuffing attempt.",
-      "action": "Block or quarantine IP 192.168.1.100 at the network firewall, review authentication logs to identify targeted accounts, and enforce multi-factor authentication and password resets.",
-      "score": 80,
+      "threat_level": "UNKNOWN",
+      "threat_type": "analysis_error",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "action": "Retry manually or check API quota",
+      "score": 0,
       "embedding": [
         -0.012916797,
         0.013939643,
