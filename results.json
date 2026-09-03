@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-09-02 20:55:06 UTC",
+  "scan_time": "2026-09-03 04:06:36 UTC",
   "critical_count": 0,
-  "high_count": 0,
+  "high_count": 1,
   "total_events": 5,
   "events": [
     {
@@ -14,7 +14,7 @@
       },
       "threat_level": "UNKNOWN",
       "threat_type": "analysis_error",
-      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
       "action": "Retry manually or check API quota",
       "score": 0,
       "embedding": [
@@ -3100,11 +3100,11 @@
         "size_gb": 15.5,
         "timestamp": "2026-08-01T02:05:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
-      "action": "Retry manually or check API quota",
-      "score": 0,
+      "threat_level": "HIGH",
+      "threat_type": "Data Exfiltration",
+      "description": "An unusually large volume of data (15.5 GB) was transferred from internal host 10.0.0.55 outside normal business hours, indicating potential unauthorized data exfiltration.",
+      "action": "Identify the destination address and active processes on 10.0.0.55, verify authorization for bulk transfer, and temporarily restrict outbound network access if unauthorized.",
+      "score": 80,
       "embedding": [
         -0.003880629,
         0.01726714,
