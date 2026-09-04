@@ -1,5 +1,5 @@
 {
-  "scan_time": "2026-09-04 04:12:37 UTC",
+  "scan_time": "2026-09-04 11:04:27 UTC",
   "critical_count": 0,
   "high_count": 1,
   "total_events": 5,
@@ -13,10 +13,10 @@
         "timestamp": "2026-08-01T02:00:00Z"
       },
       "threat_level": "HIGH",
-      "threat_type": "Internal Brute Force Attack",
-      "description": "A high volume of failed login attempts (50) originating from an internal IP address during off-hours, indicating potential automated credential stuffing, brute-force activity, or a compromised host.",
-      "action": "Quarantine IP 192.168.1.100, inspect authentication logs to identify targeted accounts, isolate the internal host to investigate for unauthorized tools or malware, and enforce password resets and MFA.",
-      "score": 85,
+      "threat_type": "Internal Brute Force / Credential Stuffing",
+      "description": "A significant volume of 50 failed login attempts originated from an internal private IP address (192.168.1.100) during off-hours, indicating potential automated brute-force activity or a compromised internal machine.",
+      "action": "Quarantine the host at 192.168.1.100, inspect authentication logs to determine which accounts were targeted, enforce password resets and MFA for those accounts, and perform forensic analysis on the host for malware or unauthorized tools.",
+      "score": 80,
       "embedding": [
         -0.012916797,
         0.013939643,
@@ -3102,7 +3102,7 @@
       },
       "threat_level": "UNKNOWN",
       "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
       "action": "Retry manually or check API quota",
       "score": 0,
       "embedding": [
@@ -6190,8 +6190,8 @@
       },
       "threat_level": "MEDIUM",
       "threat_type": "Internal Reconnaissance",
-      "description": "Internal host 172.16.0.200 initiated a port scan across 1,000 ports, indicating potential host compromise and lateral movement reconnaissance.",
-      "action": "Isolate host 172.16.0.200 from the network, inspect active processes and network sockets, and analyze authentication logs for unauthorized access.",
+      "description": "An internal host (172.16.0.200) performed a port scan across 1,000 ports, indicating potential unauthorized discovery, host compromise, or lateral movement preparation.",
+      "action": "Isolate host 172.16.0.200 from the network, review running processes and active connections, and inspect authentication logs to identify the source of the scan.",
       "score": 65,
       "embedding": [
         -0.01130319,
@@ -12364,11 +12364,11 @@
         "country": "Unknown",
         "timestamp": "2026-08-01T02:20:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
-      "action": "Retry manually or check API quota",
-      "score": 0,
+      "threat_level": "MEDIUM",
+      "threat_type": "Anomalous Credential Access",
+      "description": "An API key was utilized from an unfamiliar IP address and unverified geographic location, which may indicate credential exposure or unauthorized usage.",
+      "action": "Validate the request origin with the credential owner, temporarily restrict or rotate the affected API key, and inspect audit logs for anomalous operations.",
+      "score": 55,
       "embedding": [
         0.008422641,
         0.0001296921,
