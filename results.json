@@ -1,5 +1,5 @@
 {
-  "scan_time": "2026-09-04 16:12:41 UTC",
+  "scan_time": "2026-09-04 20:40:24 UTC",
   "critical_count": 0,
   "high_count": 1,
   "total_events": 5,
@@ -13,9 +13,9 @@
         "timestamp": "2026-08-01T02:00:00Z"
       },
       "threat_level": "HIGH",
-      "threat_type": "Internal Brute Force / Credential Stuffing",
-      "description": "Rapid succession of 50 failed login attempts originating from internal IP 192.168.1.100 during off-peak hours, indicating a potential brute force attack, credential stuffing, or lateral movement from a compromised internal host.",
-      "action": "Quarantine IP 192.168.1.100, review authentication logs to identify targeted accounts, inspect the source machine for malware or automated scripts, and enforce password resets and multi-factor authentication on affected accounts.",
+      "threat_type": "Brute Force Attack",
+      "description": "Multiple consecutive failed login attempts (50) detected from IP 192.168.1.100, indicating an automated brute force or credential stuffing attempt.",
+      "action": "Block or quarantine IP 192.168.1.100, review authentication logs to identify targeted user accounts, inspect the internal host for potential compromise, and enforce multi-factor authentication.",
       "score": 80,
       "embedding": [
         -0.012916797,
