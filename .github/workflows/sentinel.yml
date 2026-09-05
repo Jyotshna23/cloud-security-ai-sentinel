@@ -19,7 +19,8 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install google-genai
+        run: python -m pip install --upgrade pip
+          pip install google-genai numpy pydantic
 
       - name: Run sentinel
         run: python sentinel.py
