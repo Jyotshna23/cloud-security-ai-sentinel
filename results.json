@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-09-10 11:06:16 UTC",
+  "scan_time": "2026-09-10 16:16:26 UTC",
   "critical_count": 0,
-  "high_count": 2,
+  "high_count": 1,
   "total_events": 5,
   "events": [
     {
@@ -14,7 +14,7 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "Detected 50 consecutive failed login attempts originating from internal IP address 192.168.1.100, indicating an active brute-force or credential-stuffing attack.",
+      "description": "Detected 50 consecutive failed login attempts originating from internal IP 192.168.1.100, indicating a potential brute-force or credential stuffing attempt.",
       "action": "Temporarily block or rate-limit IP 192.168.1.100, verify targeted account status, reset affected credentials, and review internal host integrity.",
       "score": 80,
       "embedding": [
@@ -3100,11 +3100,11 @@
         "size_gb": 15.5,
         "timestamp": "2026-08-01T02:05:00Z"
       },
-      "threat_level": "HIGH",
-      "threat_type": "Data Exfiltration",
-      "description": "An unusual data download of 15.5 GB was detected originating from IP 10.0.0.55 outside normal business hours, indicating potential data exfiltration or unauthorized bulk transfer.",
-      "action": "Isolate host 10.0.0.55 from the network, review authentication logs and data access records associated with the session, and verify business justification with the data owner.",
-      "score": 82,
+      "threat_level": "UNKNOWN",
+      "threat_type": "analysis_error",
+      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
+      "action": "Retry manually or check API quota",
+      "score": 0,
       "embedding": [
         -0.003880629,
         0.01726714,
@@ -6188,11 +6188,11 @@
         "ports_scanned": 1000,
         "timestamp": "2026-08-01T02:10:00Z"
       },
-      "threat_level": "MEDIUM",
-      "threat_type": "Network Reconnaissance",
-      "description": "Port scan detected originating from internal IP 172.16.0.200 scanning 1000 ports, indicative of network reconnaissance or internal compromise.",
-      "action": "Isolate the host 172.16.0.200 from the network, review authentication logs, and inspect active processes on the source device.",
-      "score": 60,
+      "threat_level": "UNKNOWN",
+      "threat_type": "analysis_error",
+      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
+      "action": "Retry manually or check API quota",
+      "score": 0,
       "embedding": [
         -0.01130319,
         0.0035783502,
@@ -12364,11 +12364,11 @@
         "country": "Unknown",
         "timestamp": "2026-08-01T02:20:00Z"
       },
-      "threat_level": "MEDIUM",
-      "threat_type": "Anomalous Credential Access",
-      "description": "An API key was accessed from a previously unseen IP address in an unknown country, indicating potential key exposure or unauthorized usage.",
-      "action": "Revoke and rotate the compromised API key, verify recent API transactions from IP 203.0.113.5, and enforce IP allowlisting where feasible.",
-      "score": 60,
+      "threat_level": "UNKNOWN",
+      "threat_type": "analysis_error",
+      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
+      "action": "Retry manually or check API quota",
+      "score": 0,
       "embedding": [
         0.008422641,
         0.0001296921,
