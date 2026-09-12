@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-09-12 10:33:35 UTC",
+  "scan_time": "2026-09-12 15:25:23 UTC",
   "critical_count": 0,
-  "high_count": 2,
+  "high_count": 1,
   "total_events": 5,
   "events": [
     {
@@ -14,7 +14,7 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "Detected 50 consecutive failed login attempts originating from internal IP address 192.168.1.100, indicating potential automated brute-force activity or a compromised internal host.",
+      "description": "Detected 50 consecutive failed login attempts originating from IP 192.168.1.100, indicating an automated brute force or credential guessing attempt.",
       "action": "Temporarily block or rate-limit IP 192.168.1.100, verify targeted account status, reset affected credentials, and review internal host integrity.",
       "score": 80,
       "embedding": [
@@ -3100,11 +3100,11 @@
         "size_gb": 15.5,
         "timestamp": "2026-08-01T02:05:00Z"
       },
-      "threat_level": "HIGH",
-      "threat_type": "Data Exfiltration",
-      "description": "An unusual download of 15.5 GB of data was detected originating from IP 10.0.0.55 at an anomalous time (02:05:00 UTC), indicating potential unauthorized data exfiltration.",
-      "action": "Isolate host 10.0.0.55 from the network, review authentication logs and data access records associated with the session, and verify business justification with the data owner.",
-      "score": 80,
+      "threat_level": "UNKNOWN",
+      "threat_type": "analysis_error",
+      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
+      "action": "Retry manually or check API quota",
+      "score": 0,
       "embedding": [
         -0.003880629,
         0.01726714,
@@ -6189,8 +6189,8 @@
         "timestamp": "2026-08-01T02:10:00Z"
       },
       "threat_level": "MEDIUM",
-      "threat_type": "Reconnaissance / Port Scan",
-      "description": "Internal IP 172.16.0.200 performed a port scan targeting 1000 ports, suggesting unauthorized internal reconnaissance or host compromise.",
+      "threat_type": "Network Reconnaissance",
+      "description": "Host 172.16.0.200 initiated a port scan across 1000 ports, which suggests internal network reconnaissance or a compromised internal asset.",
       "action": "Isolate the host 172.16.0.200 from the network, review authentication logs, and inspect active processes on the source device.",
       "score": 60,
       "embedding": [
@@ -9278,7 +9278,7 @@
       },
       "threat_level": "UNKNOWN",
       "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
       "action": "Retry manually or check API quota",
       "score": 0,
       "embedding": [
