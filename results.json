@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-09-16 04:33:07 UTC",
+  "scan_time": "2026-09-16 11:20:00 UTC",
   "critical_count": 0,
-  "high_count": 0,
+  "high_count": 1,
   "total_events": 5,
   "events": [
     {
@@ -12,11 +12,11 @@
         "attempts": 50,
         "timestamp": "2026-08-01T02:00:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
-      "action": "Retry manually or check API quota",
-      "score": 0,
+      "threat_level": "HIGH",
+      "threat_type": "Brute Force Attack",
+      "description": "Detected 50 failed login attempts originating from internal IP 192.168.1.100, indicating an active brute-force or credential stuffing attempt against authentication endpoints.",
+      "action": "Temporarily block or rate-limit IP 192.168.1.100, verify targeted account status, reset affected credentials, and review internal host integrity.",
+      "score": 80,
       "embedding": [
         -0.012916797,
         0.013939643,
@@ -3102,7 +3102,7 @@
       },
       "threat_level": "UNKNOWN",
       "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
       "action": "Retry manually or check API quota",
       "score": 0,
       "embedding": [
@@ -6188,11 +6188,11 @@
         "ports_scanned": 1000,
         "timestamp": "2026-08-01T02:10:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
-      "action": "Retry manually or check API quota",
-      "score": 0,
+      "threat_level": "MEDIUM",
+      "threat_type": "Network Reconnaissance",
+      "description": "Internal host 172.16.0.200 scanned 1,000 ports indicating active network enumeration and potential reconnaissance.",
+      "action": "Isolate host 172.16.0.200, review network security group/firewall logs, and inspect the host for unauthorized scanning utilities or compromise.",
+      "score": 60,
       "embedding": [
         -0.01130319,
         0.0035783502,
@@ -9278,7 +9278,7 @@
       },
       "threat_level": "UNKNOWN",
       "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
       "action": "Retry manually or check API quota",
       "score": 0,
       "embedding": [
@@ -12366,7 +12366,7 @@
       },
       "threat_level": "UNKNOWN",
       "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
       "action": "Retry manually or check API quota",
       "score": 0,
       "embedding": [
