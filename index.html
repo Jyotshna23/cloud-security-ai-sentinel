@@ -19,6 +19,36 @@ th{color:#4dabf7;}
 <table>
 <tr><th>Scan Time</th><th>Event</th><th>Threat Level</th><th>Score</th><th>AI Analysis</th></tr>
 <tr>
+<td>2026-09-16 16:40:22 UTC</td>
+<td>Failed login attempt</td>
+<td class="level-high">HIGH</td>
+<td>80</td>
+<td>Detected 50 consecutive failed login attempts originating from IP address 192.168.1.100, indicating an automated brute force or credential stuffing attempt.</td>
+</tr><tr>
+<td>2026-09-16 16:40:22 UTC</td>
+<td>Unusual data download</td>
+<td class="level-high">HIGH</td>
+<td>75</td>
+<td>An unusual data download of 15.5 GB was initiated from internal IP 10.0.0.55 during non-business hours (02:05 UTC), suggesting potential unauthorized exfiltration.</td>
+</tr><tr>
+<td>2026-09-16 16:40:22 UTC</td>
+<td>Port scan detected</td>
+<td class="level-medium">MEDIUM</td>
+<td>60</td>
+<td>Internal host 172.16.0.200 executed a scan across 1000 ports, indicating potential network reconnaissance or compromised host activity.</td>
+</tr><tr>
+<td>2026-09-16 16:40:22 UTC</td>
+<td>New admin role granted</td>
+<td class="level-high">HIGH</td>
+<td>80</td>
+<td>A new administrative role was granted to service account svc-deploy from internal IP 10.0.0.12, indicating a significant change in access privileges that warrants immediate review.</td>
+</tr><tr>
+<td>2026-09-16 16:40:22 UTC</td>
+<td>API key used from new location</td>
+<td class="level-medium">MEDIUM</td>
+<td>55</td>
+<td>An API key was accessed from an unrecognized IP address (203.0.113.5) with an unknown geographic origin, indicating potential unauthorized credential access.</td>
+</tr><tr>
 <td>2026-09-16 11:20:00 UTC</td>
 <td>Failed login attempt</td>
 <td class="level-high">HIGH</td>
@@ -884,36 +914,6 @@ th{color:#4dabf7;}
 <td>Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info</td>
 </tr><tr>
 <td>2026-09-09 04:22:43 UTC</td>
-<td>API key used from new location</td>
-<td class="level-unknown">UNKNOWN</td>
-<td>0</td>
-<td>Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info</td>
-</tr><tr>
-<td>2026-09-08 21:01:43 UTC</td>
-<td>Failed login attempt</td>
-<td class="level-unknown">UNKNOWN</td>
-<td>0</td>
-<td>Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info</td>
-</tr><tr>
-<td>2026-09-08 21:01:43 UTC</td>
-<td>Unusual data download</td>
-<td class="level-unknown">UNKNOWN</td>
-<td>0</td>
-<td>Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info</td>
-</tr><tr>
-<td>2026-09-08 21:01:43 UTC</td>
-<td>Port scan detected</td>
-<td class="level-unknown">UNKNOWN</td>
-<td>0</td>
-<td>Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info</td>
-</tr><tr>
-<td>2026-09-08 21:01:43 UTC</td>
-<td>New admin role granted</td>
-<td class="level-unknown">UNKNOWN</td>
-<td>0</td>
-<td>Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info</td>
-</tr><tr>
-<td>2026-09-08 21:01:43 UTC</td>
 <td>API key used from new location</td>
 <td class="level-unknown">UNKNOWN</td>
 <td>0</td>
