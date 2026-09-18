@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-09-18 04:23:37 UTC",
+  "scan_time": "2026-09-18 11:01:27 UTC",
   "critical_count": 0,
-  "high_count": 0,
+  "high_count": 1,
   "total_events": 5,
   "events": [
     {
@@ -3102,7 +3102,7 @@
       },
       "threat_level": "UNKNOWN",
       "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
       "action": "Retry manually or check API quota",
       "score": 0,
       "embedding": [
@@ -6190,7 +6190,7 @@
       },
       "threat_level": "UNKNOWN",
       "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
       "action": "Retry manually or check API quota",
       "score": 0,
       "embedding": [
@@ -9276,11 +9276,11 @@
         "user": "svc-deploy",
         "timestamp": "2026-08-01T02:15:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
-      "action": "Retry manually or check API quota",
-      "score": 0,
+      "threat_level": "HIGH",
+      "threat_type": "Privilege Escalation",
+      "description": "Administrative privileges were granted to service account svc-deploy from internal IP 10.0.0.12 during off-hours, indicating potential unauthorized privilege escalation or CI/CD pipeline compromise.",
+      "action": "Audit recent activity for svc-deploy, verify authorization with the platform owner, and revoke administrative access if not explicitly approved by change management.",
+      "score": 80,
       "embedding": [
         -0.015533213,
         0.013324568,
@@ -12364,11 +12364,11 @@
         "country": "Unknown",
         "timestamp": "2026-08-01T02:20:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
-      "action": "Retry manually or check API quota",
-      "score": 0,
+      "threat_level": "MEDIUM",
+      "threat_type": "Anomalous Credential Access",
+      "description": "An API key was utilized from an unfamiliar location and an unresolved country, indicating potential credential exposure or unauthorized usage.",
+      "action": "Verify the activity with the key owner, temporarily restrict permissions or rotate the API key if unconfirmed, and inspect related access logs.",
+      "score": 55,
       "embedding": [
         0.008422641,
         0.0001296921,
