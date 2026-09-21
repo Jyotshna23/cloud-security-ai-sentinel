@@ -19,6 +19,36 @@ th{color:#4dabf7;}
 <table>
 <tr><th>Scan Time</th><th>Event</th><th>Threat Level</th><th>Score</th><th>AI Analysis</th></tr>
 <tr>
+<td>2026-09-21 12:36:35 UTC</td>
+<td>Failed login attempt</td>
+<td class="level-high">HIGH</td>
+<td>75</td>
+<td>Detected 50 consecutive failed login attempts originating from IP 192.168.1.100, indicating an automated brute force or credential stuffing attack against internal resources.</td>
+</tr><tr>
+<td>2026-09-21 12:36:35 UTC</td>
+<td>Unusual data download</td>
+<td class="level-unknown">UNKNOWN</td>
+<td>0</td>
+<td>Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please </td>
+</tr><tr>
+<td>2026-09-21 12:36:35 UTC</td>
+<td>Port scan detected</td>
+<td class="level-unknown">UNKNOWN</td>
+<td>0</td>
+<td>Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please </td>
+</tr><tr>
+<td>2026-09-21 12:36:35 UTC</td>
+<td>New admin role granted</td>
+<td class="level-unknown">UNKNOWN</td>
+<td>0</td>
+<td>Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please </td>
+</tr><tr>
+<td>2026-09-21 12:36:35 UTC</td>
+<td>API key used from new location</td>
+<td class="level-medium">MEDIUM</td>
+<td>55</td>
+<td>An API key was accessed from a previously unobserved IP address (203.0.113.5) and an unknown country, suggesting potential credential compromise or unauthorized access.</td>
+</tr><tr>
 <td>2026-09-21 04:37:38 UTC</td>
 <td>Failed login attempt</td>
 <td class="level-high">HIGH</td>
@@ -888,36 +918,6 @@ th{color:#4dabf7;}
 <td class="level-medium">MEDIUM</td>
 <td>50</td>
 <td>API key was used from an unrecognized IP address (203.0.113.5) with an unknown geolocation.</td>
-</tr><tr>
-<td>2026-09-13 11:36:36 UTC</td>
-<td>Failed login attempt</td>
-<td class="level-high">HIGH</td>
-<td>80</td>
-<td>Detected 50 consecutive failed login attempts originating from IP 192.168.1.100 during off-hours, indicating an active brute-force or credential guessing campaign.</td>
-</tr><tr>
-<td>2026-09-13 11:36:36 UTC</td>
-<td>Unusual data download</td>
-<td class="level-high">HIGH</td>
-<td>82</td>
-<td>Host 10.0.0.55 transferred an unusually large volume of data (15.5 GB) during off-peak hours at 02:05:00Z, suggesting potential unauthorized data exfiltration.</td>
-</tr><tr>
-<td>2026-09-13 11:36:36 UTC</td>
-<td>Port scan detected</td>
-<td class="level-unknown">UNKNOWN</td>
-<td>0</td>
-<td>Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please </td>
-</tr><tr>
-<td>2026-09-13 11:36:36 UTC</td>
-<td>New admin role granted</td>
-<td class="level-unknown">UNKNOWN</td>
-<td>0</td>
-<td>Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info</td>
-</tr><tr>
-<td>2026-09-13 11:36:36 UTC</td>
-<td>API key used from new location</td>
-<td class="level-unknown">UNKNOWN</td>
-<td>0</td>
-<td>Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info</td>
 </tr>
 </table>
 <p class="note">Note: events analyzed are simulated sample data (events.json), used to demonstrate an automated AI classification pipeline with retrieval-augmented context from scan history. Not connected to a live production cloud environment.</p>
