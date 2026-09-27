@@ -1,5 +1,5 @@
 {
-  "scan_time": "2026-09-27 11:52:10 UTC",
+  "scan_time": "2026-09-27 16:50:39 UTC",
   "critical_count": 0,
   "high_count": 3,
   "total_events": 5,
@@ -14,9 +14,9 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "Detected 50 failed login attempts from internal IP 192.168.1.100 at 02:00:00Z, indicating an automated credential-stuffing or brute-force attempt originating from within the local network.",
+      "description": "Detected 50 consecutive failed login attempts originating from internal IP 192.168.1.100 within a short timeframe, indicating an active brute-force or credential guessing attempt.",
       "action": "Temporarily block IP 192.168.1.100, enforce account lockouts, trigger password resets for targeted accounts, and inspect the host for internal compromise.",
-      "score": 80,
+      "score": 75,
       "embedding": [
         -0.012916797,
         0.013939643,
@@ -3102,8 +3102,8 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Data Exfiltration",
-      "description": "Host 10.0.0.55 initiated an abnormal download of 15.5 GB during off-peak hours (02:05:00Z), suggesting unauthorized data egress or compromise.",
-      "action": "Isolate host 10.0.0.55 from the network, identify accessed data repositories, and review user session activity for credential compromise.",
+      "description": "An anomalous download volume of 15.5 GB was detected from internal IP 10.0.0.55 during off-peak hours (02:05:00Z), indicating potential data exfiltration or unauthorized bulk data access.",
+      "action": "Isolate host 10.0.0.55 from the network, identify accessed data repositories, revoke affected credentials, and review user session logs for unauthorized activity.",
       "score": 80,
       "embedding": [
         -0.003880629,
@@ -6190,7 +6190,7 @@
       },
       "threat_level": "MEDIUM",
       "threat_type": "Reconnaissance",
-      "description": "Internal host 172.16.0.200 conducted a scan of 1000 ports, indicating potential internal reconnaissance or compromised host activity.",
+      "description": "Internal IP 172.16.0.200 performed a port scan targeting 1,000 ports, indicating internal network reconnaissance and potential lateral movement from a compromised host.",
       "action": "Isolate host 172.16.0.200 from the network, inspect active processes and network sockets, and investigate potential lateral movement.",
       "score": 60,
       "embedding": [
@@ -9278,9 +9278,9 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Privilege Escalation",
-      "description": "Service account svc-deploy was granted or granted an administrative role from internal IP 10.0.0.12 during off-hours, indicating potential unauthorized privilege escalation or compromised credentials.",
+      "description": "A new administrative role was granted to service account svc-deploy from internal IP 10.0.0.12 during off-hours, indicating potential unauthorized privilege escalation.",
       "action": "Immediately audit the role assignment, revoke administrative privileges if unapproved, and inspect recent activities by svc-deploy.",
-      "score": 80,
+      "score": 85,
       "embedding": [
         -0.015533213,
         0.013324568,
@@ -12365,9 +12365,9 @@
         "timestamp": "2026-08-01T02:20:00Z"
       },
       "threat_level": "MEDIUM",
-      "threat_type": "Anomalous API Access",
-      "description": "An API key was utilized from an unfamiliar IP address (203.0.113.5) associated with an unknown country, indicating potential credential compromise or unauthorized access outside normal operational parameters.",
-      "action": "Verify user authorization for the IP address, rotate the potentially compromised API key, review recent access logs for suspicious activity, and enforce IP-based access restrictions.",
+      "threat_type": "Credential Compromise",
+      "description": "An API key was accessed from an unrecognized IP address with an unknown geographic location during off-hours, indicating potential unauthorized credential usage or exposure.",
+      "action": "Verify user authorization, rotate the potentially compromised API key, review recent access logs for anomalous requests, and enforce IP-based access controls.",
       "score": 55,
       "embedding": [
         0.008422641,
