@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-09-30 12:23:06 UTC",
+  "scan_time": "2026-09-30 22:08:11 UTC",
   "critical_count": 0,
-  "high_count": 0,
+  "high_count": 1,
   "total_events": 5,
   "events": [
     {
@@ -12,11 +12,11 @@
         "attempts": 50,
         "timestamp": "2026-08-01T02:00:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
-      "action": "Retry manually or check API quota",
-      "score": 0,
+      "threat_level": "HIGH",
+      "threat_type": "Brute Force Attack",
+      "description": "Detected 50 consecutive failed login attempts originating from IP address 192.168.1.100 during non-business hours, indicating potential credential guessing or automated brute-force activity.",
+      "action": "Temporarily block traffic from IP 192.168.1.100, enforce account lockout policies, verify affected user accounts, and scan the source host for malware or compromise.",
+      "score": 75,
       "embedding": [
         -0.012916797,
         0.013939643,
@@ -6188,11 +6188,11 @@
         "ports_scanned": 1000,
         "timestamp": "2026-08-01T02:10:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
-      "action": "Retry manually or check API quota",
-      "score": 0,
+      "threat_level": "MEDIUM",
+      "threat_type": "Reconnaissance / Network Scanning",
+      "description": "Internal IP 172.16.0.200 scanned 1000 ports, indicating potential network reconnaissance or compromised host attempting lateral movement.",
+      "action": "Quarantine source IP 172.16.0.200, inspect host for unauthorized scanning tools, and review internal network traffic logs.",
+      "score": 65,
       "embedding": [
         -0.01130319,
         0.0035783502,
@@ -9278,7 +9278,7 @@
       },
       "threat_level": "UNKNOWN",
       "threat_type": "analysis_error",
-      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
       "action": "Retry manually or check API quota",
       "score": 0,
       "embedding": [
@@ -12364,11 +12364,11 @@
         "country": "Unknown",
         "timestamp": "2026-08-01T02:20:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
-      "action": "Retry manually or check API quota",
-      "score": 0,
+      "threat_level": "MEDIUM",
+      "threat_type": "Credential Compromise / Anomalous Access",
+      "description": "An API key was accessed from an unrecognized IP address (203.0.113.5) with an unknown country origin, indicating potential unauthorized exposure or exfiltration of the credential.",
+      "action": "Verify user authorization, rotate the potentially compromised API key, review recent access logs for anomalous requests, and enforce IP-based access controls.",
+      "score": 60,
       "embedding": [
         0.008422641,
         0.0001296921,
