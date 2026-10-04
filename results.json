@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-10-04 12:11:30 UTC",
+  "scan_time": "2026-10-04 21:12:14 UTC",
   "critical_count": 0,
-  "high_count": 1,
+  "high_count": 3,
   "total_events": 5,
   "events": [
     {
@@ -14,9 +14,9 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "Detected 50 consecutive failed login attempts originating from IP address 192.168.1.100, strongly indicating an automated brute force or credential guessing attempt.",
+      "description": "High volume of failed login attempts (50) observed from IP address 192.168.1.100, indicating an automated brute force or credential stuffing attempt.",
       "action": "Block the originating IP address, temporarily lock the targeted accounts, and review authentication logs for potential compromise.",
-      "score": 75,
+      "score": 80,
       "embedding": [
         -0.012916797,
         0.013939643,
@@ -3100,11 +3100,11 @@
         "size_gb": 15.5,
         "timestamp": "2026-08-01T02:05:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
-      "action": "Retry manually or check API quota",
-      "score": 0,
+      "threat_level": "HIGH",
+      "threat_type": "Data Exfiltration",
+      "description": "An unusual large volume data download of 15.5 GB was detected from internal host 10.0.0.55 during off-hours (02:05 UTC), indicating potential unauthorized data exfiltration or compromised host credentials.",
+      "action": "Isolate internal host 10.0.0.55, inspect active user sessions, audit accessed file repositories, and check firewall logs for external egress.",
+      "score": 85,
       "embedding": [
         -0.003880629,
         0.01726714,
@@ -6189,10 +6189,10 @@
         "timestamp": "2026-08-01T02:10:00Z"
       },
       "threat_level": "MEDIUM",
-      "threat_type": "Internal Reconnaissance / Network Scanning",
-      "description": "Host 172.16.0.200 performed a port scan targeting 1,000 ports, suggesting potential reconnaissance or compromised host activity within the private network.",
+      "threat_type": "Network Reconnaissance",
+      "description": "Internal IP 172.16.0.200 performed a sweep of 1000 ports, indicating potential internal reconnaissance or a compromised asset.",
       "action": "Quarantine source IP 172.16.0.200, inspect the host for unauthorized scanning utilities, and review internal network traffic logs.",
-      "score": 65,
+      "score": 60,
       "embedding": [
         -0.01130319,
         0.0035783502,
@@ -9276,11 +9276,11 @@
         "user": "svc-deploy",
         "timestamp": "2026-08-01T02:15:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
-      "action": "Retry manually or check API quota",
-      "score": 0,
+      "threat_level": "HIGH",
+      "threat_type": "Privilege Escalation",
+      "description": "The service account svc-deploy was granted an admin role from internal IP 10.0.0.12, representing potential unauthorized privilege escalation or compromised CI/CD credentials.",
+      "action": "Audit the authorization request for the role assignment, verify whether this matches scheduled CI/CD pipeline deployments, and revoke admin privileges if unauthorized.",
+      "score": 80,
       "embedding": [
         -0.015533213,
         0.013324568,
@@ -12366,9 +12366,9 @@
       },
       "threat_level": "MEDIUM",
       "threat_type": "Anomalous API Access",
-      "description": "An API key was used from an unrecognized IP address (203.0.113.5) originating from an unknown location, suggesting possible key exposure or unauthorized usage.",
-      "action": "Verify the legitimacy of the IP address with the API key owner, review recent API request logs for malicious activity, and rotate the key if access is unauthorized.",
-      "score": 55,
+      "description": "An API key was accessed from a new and unrecognized IP address (203.0.113.5) with an unknown country origin, indicating potential unauthorized credential usage or exposure.",
+      "action": "Revoke or rotate the compromised API key, verify the legitimacy of the access request, and enforce IP restrictions.",
+      "score": 60,
       "embedding": [
         0.008422641,
         0.0001296921,
