@@ -19,6 +19,36 @@ th{color:#4dabf7;}
 <table>
 <tr><th>Scan Time</th><th>Event</th><th>Threat Level</th><th>Score</th><th>AI Analysis</th></tr>
 <tr>
+<td>2026-10-08 05:45:36 UTC</td>
+<td>Failed login attempt</td>
+<td class="level-high">HIGH</td>
+<td>75</td>
+<td>Observed 50 consecutive failed login attempts from IP address 192.168.1.100, indicating a potential automated brute-force or credential stuffing attack.</td>
+</tr><tr>
+<td>2026-10-08 05:45:36 UTC</td>
+<td>Unusual data download</td>
+<td class="level-high">HIGH</td>
+<td>82</td>
+<td>Host 10.0.0.55 performed an anomalous high-volume data download of 15.5 GB during off-hours at 02:05:00Z, indicative of potential unauthorized bulk extraction or exfiltration.</td>
+</tr><tr>
+<td>2026-10-08 05:45:36 UTC</td>
+<td>Port scan detected</td>
+<td class="level-medium">MEDIUM</td>
+<td>55</td>
+<td>Internal port scan detected originating from IP 172.16.0.200 across 1000 ports, indicating potential network discovery or compromise.</td>
+</tr><tr>
+<td>2026-10-08 05:45:36 UTC</td>
+<td>New admin role granted</td>
+<td class="level-high">HIGH</td>
+<td>80</td>
+<td>Administrative privileges were granted to service account svc-deploy from internal IP 10.0.0.12 at an unusual time, posing a risk of unauthorized privilege escalation.</td>
+</tr><tr>
+<td>2026-10-08 05:45:36 UTC</td>
+<td>API key used from new location</td>
+<td class="level-medium">MEDIUM</td>
+<td>55</td>
+<td>An API key was accessed from an unrecognized IP address (203.0.113.5) and an unknown geographic location, suggesting potential credential leakage or unauthorized usage.</td>
+</tr><tr>
 <td>2026-10-07 22:59:02 UTC</td>
 <td>Failed login attempt</td>
 <td class="level-high">HIGH</td>
@@ -884,36 +914,6 @@ th{color:#4dabf7;}
 <td>Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info</td>
 </tr><tr>
 <td>2026-09-28 05:04:33 UTC</td>
-<td>API key used from new location</td>
-<td class="level-unknown">UNKNOWN</td>
-<td>0</td>
-<td>Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info</td>
-</tr><tr>
-<td>2026-09-27 21:14:10 UTC</td>
-<td>Failed login attempt</td>
-<td class="level-high">HIGH</td>
-<td>80</td>
-<td>Rapid succession of 50 failed login attempts originating from internal IP 192.168.1.100, indicating an automated brute force attack or lateral movement attempt.</td>
-</tr><tr>
-<td>2026-09-27 21:14:10 UTC</td>
-<td>Unusual data download</td>
-<td class="level-high">HIGH</td>
-<td>80</td>
-<td>An unusually large data download of 15.5 GB occurred from internal host 10.0.0.55 during off-hours, indicating potential unauthorized data exfiltration or compromised credentials.</td>
-</tr><tr>
-<td>2026-09-27 21:14:10 UTC</td>
-<td>Port scan detected</td>
-<td class="level-medium">MEDIUM</td>
-<td>60</td>
-<td>Internal host 172.16.0.200 scanned 1000 network ports, indicating potential network reconnaissance or compromised asset scanning for lateral movement.</td>
-</tr><tr>
-<td>2026-09-27 21:14:10 UTC</td>
-<td>New admin role granted</td>
-<td class="level-high">HIGH</td>
-<td>85</td>
-<td>A service account (svc-deploy) was granted an administrative role, presenting a significant risk of unauthorized privilege escalation or account compromise.</td>
-</tr><tr>
-<td>2026-09-27 21:14:10 UTC</td>
 <td>API key used from new location</td>
 <td class="level-unknown">UNKNOWN</td>
 <td>0</td>
