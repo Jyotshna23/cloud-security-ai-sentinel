@@ -19,6 +19,36 @@ th{color:#4dabf7;}
 <table>
 <tr><th>Scan Time</th><th>Event</th><th>Threat Level</th><th>Score</th><th>AI Analysis</th></tr>
 <tr>
+<td>2026-10-10 21:29:35 UTC</td>
+<td>Failed login attempt</td>
+<td class="level-high">HIGH</td>
+<td>80</td>
+<td>Detected 50 failed login attempts from IP 192.168.1.100, indicating an automated brute force or credential guessing attack.</td>
+</tr><tr>
+<td>2026-10-10 21:29:35 UTC</td>
+<td>Unusual data download</td>
+<td class="level-high">HIGH</td>
+<td>85</td>
+<td>Large unexpected data download of 15.5 GB observed from internal host 10.0.0.55 outside typical operational hours, indicating potential data staging or unauthorized exfiltration.</td>
+</tr><tr>
+<td>2026-10-10 21:29:35 UTC</td>
+<td>Port scan detected</td>
+<td class="level-medium">MEDIUM</td>
+<td>60</td>
+<td>Internal host 172.16.0.200 initiated an unauthorized network port scan across 1000 ports, indicating possible reconnaissance or host compromise.</td>
+</tr><tr>
+<td>2026-10-10 21:29:35 UTC</td>
+<td>New admin role granted</td>
+<td class="level-high">HIGH</td>
+<td>85</td>
+<td>A service account, svc-deploy, was granted an administrative role, potentially indicating unauthorized privilege escalation or compromised credentials.</td>
+</tr><tr>
+<td>2026-10-10 21:29:35 UTC</td>
+<td>API key used from new location</td>
+<td class="level-medium">MEDIUM</td>
+<td>55</td>
+<td>API key authentication occurred from an unfamiliar IP address (203.0.113.5) with an unresolved geolocation, suggesting potential credential exposure or unauthorized usage.</td>
+</tr><tr>
 <td>2026-10-10 12:19:17 UTC</td>
 <td>Failed login attempt</td>
 <td class="level-high">HIGH</td>
@@ -888,36 +918,6 @@ th{color:#4dabf7;}
 <td class="level-medium">MEDIUM</td>
 <td>60</td>
 <td>An API key was accessed from an unrecognized IP address (203.0.113.5) with an unknown country origin, indicating potential unauthorized exposure or exfiltration of the credential.</td>
-</tr><tr>
-<td>2026-09-30 12:23:06 UTC</td>
-<td>Failed login attempt</td>
-<td class="level-unknown">UNKNOWN</td>
-<td>0</td>
-<td>Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please </td>
-</tr><tr>
-<td>2026-09-30 12:23:06 UTC</td>
-<td>Unusual data download</td>
-<td class="level-unknown">UNKNOWN</td>
-<td>0</td>
-<td>Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please </td>
-</tr><tr>
-<td>2026-09-30 12:23:06 UTC</td>
-<td>Port scan detected</td>
-<td class="level-unknown">UNKNOWN</td>
-<td>0</td>
-<td>Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please </td>
-</tr><tr>
-<td>2026-09-30 12:23:06 UTC</td>
-<td>New admin role granted</td>
-<td class="level-unknown">UNKNOWN</td>
-<td>0</td>
-<td>Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please </td>
-</tr><tr>
-<td>2026-09-30 12:23:06 UTC</td>
-<td>API key used from new location</td>
-<td class="level-unknown">UNKNOWN</td>
-<td>0</td>
-<td>Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please </td>
 </tr>
 </table>
 <p class="note">Note: events analyzed are simulated sample data (events.json), used to demonstrate an automated AI classification pipeline with retrieval-augmented context from scan history. Not connected to a live production cloud environment.</p>

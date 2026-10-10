@@ -1,5 +1,5 @@
 {
-  "scan_time": "2026-10-10 12:19:17 UTC",
+  "scan_time": "2026-10-10 21:29:35 UTC",
   "critical_count": 0,
   "high_count": 3,
   "total_events": 5,
@@ -14,7 +14,7 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "Multiple failed login attempts (50) detected from IP 192.168.1.100, strongly indicating an automated brute force or credential guessing attack.",
+      "description": "Detected 50 failed login attempts from IP 192.168.1.100, indicating an automated brute force or credential guessing attack.",
       "action": "Block or rate-limit the offending IP address and verify account security controls such as MFA.",
       "score": 80,
       "embedding": [
@@ -3102,9 +3102,9 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Data Exfiltration",
-      "description": "Internal host 10.0.0.55 performed an anomalous 15.5 GB data download during off-peak hours (02:05:00Z), indicating potential unauthorized data exfiltration or compromised credentials.",
+      "description": "Large unexpected data download of 15.5 GB observed from internal host 10.0.0.55 outside typical operational hours, indicating potential data staging or unauthorized exfiltration.",
       "action": "Isolate internal host 10.0.0.55, inspect active user sessions, audit accessed file repositories, and check firewall logs for external egress.",
-      "score": 80,
+      "score": 85,
       "embedding": [
         -0.003880629,
         0.01726714,
@@ -6189,10 +6189,10 @@
         "timestamp": "2026-08-01T02:10:00Z"
       },
       "threat_level": "MEDIUM",
-      "threat_type": "Reconnaissance / Port Scan",
-      "description": "An internal host at IP 172.16.0.200 scanned 1000 ports, indicating network reconnaissance and potential lateral movement preparation.",
-      "action": "Quarantine IP 172.16.0.200, inspect endpoint logs for signs of compromise, and monitor for lateral network traffic.",
-      "score": 55,
+      "threat_type": "Reconnaissance / Network Port Scan",
+      "description": "Internal host 172.16.0.200 initiated an unauthorized network port scan across 1000 ports, indicating possible reconnaissance or host compromise.",
+      "action": "Quarantine source IP 172.16.0.200, inspect the host for unauthorized scanning utilities, and review internal network traffic logs for signs of lateral movement.",
+      "score": 60,
       "embedding": [
         -0.01130319,
         0.0035783502,
@@ -9278,9 +9278,9 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Privilege Escalation",
-      "description": "A service account (svc-deploy) was granted administrative privileges from internal IP 10.0.0.12, posing a potential risk of unauthorized privilege escalation or compromised CI/CD credentials.",
+      "description": "A service account, svc-deploy, was granted an administrative role, potentially indicating unauthorized privilege escalation or compromised credentials.",
       "action": "Verify if the role grant was part of an authorized deployment workflow, review recent actions taken by svc-deploy, and immediately revoke administrative privileges if unauthorized.",
-      "score": 80,
+      "score": 85,
       "embedding": [
         -0.015533213,
         0.013324568,
@@ -12365,10 +12365,10 @@
         "timestamp": "2026-08-01T02:20:00Z"
       },
       "threat_level": "MEDIUM",
-      "threat_type": "Anomalous API Key Usage",
-      "description": "An API key was accessed from an unrecognized location and unknown country, suggesting potential credential leakage or unauthorized access.",
+      "threat_type": "Anomalous API Access",
+      "description": "API key authentication occurred from an unfamiliar IP address (203.0.113.5) with an unresolved geolocation, suggesting potential credential exposure or unauthorized usage.",
       "action": "Revoke or rotate the compromised API key, verify the legitimacy of the access request, and enforce IP restrictions.",
-      "score": 60,
+      "score": 55,
       "embedding": [
         0.008422641,
         0.0001296921,
