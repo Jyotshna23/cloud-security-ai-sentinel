@@ -1,5 +1,5 @@
 {
-  "scan_time": "2026-10-15 21:14:01 UTC",
+  "scan_time": "2026-10-16 04:14:30 UTC",
   "critical_count": 0,
   "high_count": 1,
   "total_events": 5,
@@ -14,7 +14,7 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "Detected 50 failed login attempts originating from IP address 192.168.1.100, indicating a potential brute-force or credential stuffing activity.",
+      "description": "Detected 50 consecutive failed login attempts from IP 192.168.1.100, indicating a potential automated brute-force or credential stuffing attack.",
       "action": "Block or rate-limit the offending IP address and verify account security controls such as MFA.",
       "score": 80,
       "embedding": [
