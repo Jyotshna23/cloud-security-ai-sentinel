@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-10-17 15:23:53 UTC",
+  "scan_time": "2026-10-17 20:26:42 UTC",
   "critical_count": 0,
-  "high_count": 3,
+  "high_count": 2,
   "total_events": 5,
   "events": [
     {
@@ -14,7 +14,7 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "Detected 50 consecutive failed login attempts originating from IP 192.168.1.100, strongly indicating an automated brute force or credential stuffing attempt.",
+      "description": "Detected 50 consecutive failed login attempts from IP 192.168.1.100 indicating a probable brute force or credential stuffing attempt.",
       "action": "Block or rate-limit the offending IP address and verify account security controls such as MFA.",
       "score": 80,
       "embedding": [
@@ -3102,7 +3102,7 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Data Exfiltration",
-      "description": "An anomalous download volume of 15.5 GB was initiated from internal IP 10.0.0.55 during off-peak hours, indicating potential data exfiltration.",
+      "description": "Anomalous high-volume data download of 15.5 GB detected from internal host 10.0.0.55 during off-peak hours, presenting a strong indicator of unauthorized data exfiltration.",
       "action": "Isolate host 10.0.0.55 from the network, revoke all active user session tokens associated with the transfer, and audit data access logs to determine the scope of downloaded assets.",
       "score": 85,
       "embedding": [
@@ -6189,8 +6189,8 @@
         "timestamp": "2026-08-01T02:10:00Z"
       },
       "threat_level": "MEDIUM",
-      "threat_type": "Network Reconnaissance / Port Scan",
-      "description": "Internal host 172.16.0.200 executed a scan targeting 1000 ports, indicating potential reconnaissance activity for lateral movement.",
+      "threat_type": "Network Reconnaissance",
+      "description": "A port scan was detected originating from internal IP 172.16.0.200 probing 1000 ports, suggesting potential unauthorized network reconnaissance or a compromised internal system.",
       "action": "Isolate the source IP 172.16.0.200 from the network, inspect host processes and logs for indicators of compromise, and update firewall rules to prevent unauthorized scanning.",
       "score": 60,
       "embedding": [
@@ -9276,11 +9276,11 @@
         "user": "svc-deploy",
         "timestamp": "2026-08-01T02:15:00Z"
       },
-      "threat_level": "HIGH",
-      "threat_type": "Privilege Escalation",
-      "description": "A service account (svc-deploy) was granted or granted an administrative role outside of standard business hours, indicating potential privilege escalation or compromised automation credentials.",
-      "action": "Verify the authorization of the role assignment, review IAM audit trails for the principal, and revoke administrative privileges if unauthorized.",
-      "score": 85,
+      "threat_level": "UNKNOWN",
+      "threat_type": "analysis_error",
+      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
+      "action": "Retry manually or check API quota",
+      "score": 0,
       "embedding": [
         -0.015533213,
         0.013324568,
@@ -12365,9 +12365,9 @@
         "timestamp": "2026-08-01T02:20:00Z"
       },
       "threat_level": "MEDIUM",
-      "threat_type": "Credential Access",
-      "description": "An API key was utilized from a previously unseen IP address (203.0.113.5) located in an unknown origin, suggesting possible credential leakage or unauthorized external access.",
-      "action": "Validate the activity with the API key owner, rotate or revoke the compromised key, and inspect API access logs for anomalous operations.",
+      "threat_type": "Anomalous Access",
+      "description": "An API key was utilized from an unfamiliar IP address (203.0.113.5) with an unidentifiable geographical location, suggesting potential credential leakage or unauthorized third-party access.",
+      "action": "Verify the validity of the request with the key owner, rotate the exposed API key, and configure IP address allowlisting.",
       "score": 55,
       "embedding": [
         0.008422641,
