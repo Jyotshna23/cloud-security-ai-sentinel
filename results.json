@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-10-18 04:12:19 UTC",
+  "scan_time": "2026-10-18 10:50:16 UTC",
   "critical_count": 0,
-  "high_count": 2,
+  "high_count": 3,
   "total_events": 5,
   "events": [
     {
@@ -14,7 +14,7 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "High volume of failed login attempts (50 attempts) detected from IP 192.168.1.100 indicating a potential credential guessing or brute-force attack.",
+      "description": "Detected 50 failed login attempts from IP 192.168.1.100, indicating a potential brute-force or credential-stuffing attack.",
       "action": "Block or rate-limit the offending IP address and verify account security controls such as MFA.",
       "score": 80,
       "embedding": [
@@ -3102,7 +3102,7 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Data Exfiltration",
-      "description": "An anomalous download of 15.5 GB was detected from internal host 10.0.0.55 at an unusual time (02:05:00Z), indicating potential unauthorized data exfiltration.",
+      "description": "Anomalous download volume of 15.5 GB detected from internal IP 10.0.0.55 during off-peak hours (02:05:00 UTC), indicating unauthorized data extraction.",
       "action": "Isolate host 10.0.0.55 from the network, revoke all active user session tokens associated with the transfer, and audit data access logs to determine the scope of downloaded assets.",
       "score": 82,
       "embedding": [
@@ -6189,10 +6189,10 @@
         "timestamp": "2026-08-01T02:10:00Z"
       },
       "threat_level": "MEDIUM",
-      "threat_type": "Internal Reconnaissance",
-      "description": "A port scan targeting 1000 ports was initiated from internal IP 172.16.0.200, indicating potential internal reconnaissance or a compromised host.",
+      "threat_type": "Reconnaissance",
+      "description": "An internal port scan targeting 1000 ports was detected originating from host 172.16.0.200, suggesting potential network discovery or compromised host activity.",
       "action": "Isolate the source IP 172.16.0.200 from the network, inspect host processes and logs for indicators of compromise, and update firewall rules to prevent unauthorized scanning.",
-      "score": 60,
+      "score": 55,
       "embedding": [
         -0.01130319,
         0.0035783502,
@@ -9276,11 +9276,11 @@
         "user": "svc-deploy",
         "timestamp": "2026-08-01T02:15:00Z"
       },
-      "threat_level": "UNKNOWN",
-      "threat_type": "analysis_error",
-      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
-      "action": "Retry manually or check API quota",
-      "score": 0,
+      "threat_level": "HIGH",
+      "threat_type": "Privilege Escalation",
+      "description": "A new administrative role was granted to or by the service account 'svc-deploy' from internal IP 10.0.0.12 outside normal working hours, indicating potential privilege escalation.",
+      "action": "Verify the authorization of the role assignment, review IAM audit trails for the principal, and revoke administrative privileges if unauthorized.",
+      "score": 80,
       "embedding": [
         -0.015533213,
         0.013324568,
@@ -12365,9 +12365,9 @@
         "timestamp": "2026-08-01T02:20:00Z"
       },
       "threat_level": "MEDIUM",
-      "threat_type": "Anomalous Access / Credential Compromise",
-      "description": "An API key was utilized from an unrecognized IP address (203.0.113.5) and an unknown country origin, which may indicate unauthorized access or token leakage.",
-      "action": "Validate the activity with the API key owner, rotate or revoke the compromised key, and inspect API access logs for anomalous operations.",
+      "threat_type": "Anomalous Access / Credential Exposure",
+      "description": "An API key was accessed from an unfamiliar IP address (203.0.113.5) located in an unknown region, suggesting possible credential leakage or unauthorized usage.",
+      "action": "Confirm the activity with the API key owner, rotate the potentially compromised key, review recent API request logs for malicious actions, and enforce IP allowlisting.",
       "score": 55,
       "embedding": [
         0.008422641,
