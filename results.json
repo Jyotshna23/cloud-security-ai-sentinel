@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-10-24 15:46:45 UTC",
+  "scan_time": "2026-10-24 20:35:23 UTC",
   "critical_count": 0,
-  "high_count": 3,
+  "high_count": 2,
   "total_events": 5,
   "events": [
     {
@@ -14,7 +14,7 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "High volume of failed login attempts (50) detected from IP 192.168.1.100 indicating a potential brute force or credential stuffing attempt.",
+      "description": "High volume of failed login attempts (50) detected from IP 192.168.1.100 indicating potential brute-force or credential stuffing activity.",
       "action": "Block or rate-limit the offending IP address and verify account security controls such as MFA.",
       "score": 80,
       "embedding": [
@@ -3102,7 +3102,7 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Data Exfiltration",
-      "description": "Anomalous outbound transfer of 15.5 GB detected from internal IP 10.0.0.55 during off-peak hours, indicating potential unauthorized data exfiltration.",
+      "description": "An unusual data download of 15.5 GB was detected originating from internal IP 10.0.0.55 during off-peak hours at 02:05:00Z, suggesting potential unauthorized data transfer or exfiltration.",
       "action": "Isolate the host at 10.0.0.55, revoke active session tokens, and audit accessed data and destination endpoints.",
       "score": 85,
       "embedding": [
@@ -6189,9 +6189,9 @@
         "timestamp": "2026-08-01T02:10:00Z"
       },
       "threat_level": "MEDIUM",
-      "threat_type": "Network Reconnaissance",
-      "description": "Internal host 172.16.0.200 performed an unauthorized port scan targeting 1000 ports, indicating potential reconnaissance or compromised host activity.",
-      "action": "Isolate host 172.16.0.200 from the network, investigate running processes and endpoint logs for indicators of compromise, and block unauthorized scanning via firewall rules.",
+      "threat_type": "Port Scan / Reconnaissance",
+      "description": "Internal host 172.16.0.200 initiated an unauthorized scan across 1000 ports, indicating potential reconnaissance activity or a compromised endpoint.",
+      "action": "Isolate the source IP 172.16.0.200 from the network, inspect host processes and logs for indicators of compromise, and update firewall rules to prevent unauthorized scanning.",
       "score": 55,
       "embedding": [
         -0.01130319,
@@ -9276,11 +9276,11 @@
         "user": "svc-deploy",
         "timestamp": "2026-08-01T02:15:00Z"
       },
-      "threat_level": "HIGH",
-      "threat_type": "Privilege Escalation",
-      "description": "A new administrative role was granted involving the svc-deploy service account during off-hours, presenting a potential unauthorized privilege escalation risk.",
-      "action": "Verify deployment pipeline authorization, inspect recent activity from svc-deploy, and revoke administrative permissions if unapproved.",
-      "score": 80,
+      "threat_level": "UNKNOWN",
+      "threat_type": "analysis_error",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "action": "Retry manually or check API quota",
+      "score": 0,
       "embedding": [
         -0.015533213,
         0.013324568,
@@ -12364,11 +12364,11 @@
         "country": "Unknown",
         "timestamp": "2026-08-01T02:20:00Z"
       },
-      "threat_level": "MEDIUM",
-      "threat_type": "Anomalous Access",
-      "description": "An API key was used from an unfamiliar IP address (203.0.113.5) in an unknown location, indicating potential credential exposure or unauthorized usage.",
-      "action": "Rotate the API key immediately, review API access logs for anomalous behavior from IP 203.0.113.5, and restrict API keys to designated IP ranges.",
-      "score": 55,
+      "threat_level": "UNKNOWN",
+      "threat_type": "analysis_error",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "action": "Retry manually or check API quota",
+      "score": 0,
       "embedding": [
         0.008422641,
         0.0001296921,
