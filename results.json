@@ -1,5 +1,5 @@
 {
-  "scan_time": "2026-10-24 10:44:31 UTC",
+  "scan_time": "2026-10-24 15:46:45 UTC",
   "critical_count": 0,
   "high_count": 3,
   "total_events": 5,
@@ -14,7 +14,7 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "Detected 50 consecutive failed login attempts from IP address 192.168.1.100, indicating an automated credential brute-force or password spraying attempt.",
+      "description": "High volume of failed login attempts (50) detected from IP 192.168.1.100 indicating a potential brute force or credential stuffing attempt.",
       "action": "Block or rate-limit the offending IP address and verify account security controls such as MFA.",
       "score": 80,
       "embedding": [
@@ -3102,9 +3102,9 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Data Exfiltration",
-      "description": "An anomalous download volume of 15.5 GB was initiated by host 10.0.0.55 during off-hours (02:05 UTC), indicating potential unauthorized data staging or exfiltration.",
+      "description": "Anomalous outbound transfer of 15.5 GB detected from internal IP 10.0.0.55 during off-peak hours, indicating potential unauthorized data exfiltration.",
       "action": "Isolate the host at 10.0.0.55, revoke active session tokens, and audit accessed data and destination endpoints.",
-      "score": 82,
+      "score": 85,
       "embedding": [
         -0.003880629,
         0.01726714,
@@ -6190,7 +6190,7 @@
       },
       "threat_level": "MEDIUM",
       "threat_type": "Network Reconnaissance",
-      "description": "Host 172.16.0.200 engaged in extensive port scanning across 1000 ports, suggesting potential internal reconnaissance or an infected/compromised endpoint.",
+      "description": "Internal host 172.16.0.200 performed an unauthorized port scan targeting 1000 ports, indicating potential reconnaissance or compromised host activity.",
       "action": "Isolate host 172.16.0.200 from the network, investigate running processes and endpoint logs for indicators of compromise, and block unauthorized scanning via firewall rules.",
       "score": 55,
       "embedding": [
@@ -9278,8 +9278,8 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Privilege Escalation",
-      "description": "Administrative privileges were granted involving service account svc-deploy during off-hours, posing a risk of unauthorized privilege escalation or compromised credentials.",
-      "action": "Audit the authorization of the role assignment, review the audit log for the granting principal, and revoke the admin role if unverified.",
+      "description": "A new administrative role was granted involving the svc-deploy service account during off-hours, presenting a potential unauthorized privilege escalation risk.",
+      "action": "Verify deployment pipeline authorization, inspect recent activity from svc-deploy, and revoke administrative permissions if unapproved.",
       "score": 80,
       "embedding": [
         -0.015533213,
@@ -12365,10 +12365,10 @@
         "timestamp": "2026-08-01T02:20:00Z"
       },
       "threat_level": "MEDIUM",
-      "threat_type": "Credential Misuse",
-      "description": "An API key was utilized from an unprecedented IP address (203.0.113.5) and an unknown geographic location, presenting a risk of unauthorized credential exposure.",
-      "action": "Rotate the API key immediately, review API access logs for anomalous behavior originating from IP 203.0.113.5, and configure strict IP allowlisting.",
-      "score": 60,
+      "threat_type": "Anomalous Access",
+      "description": "An API key was used from an unfamiliar IP address (203.0.113.5) in an unknown location, indicating potential credential exposure or unauthorized usage.",
+      "action": "Rotate the API key immediately, review API access logs for anomalous behavior from IP 203.0.113.5, and restrict API keys to designated IP ranges.",
+      "score": 55,
       "embedding": [
         0.008422641,
         0.0001296921,
