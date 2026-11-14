@@ -1,7 +1,7 @@
 {
-  "scan_time": "2026-11-14 09:25:13 UTC",
+  "scan_time": "2026-11-14 13:24:13 UTC",
   "critical_count": 0,
-  "high_count": 2,
+  "high_count": 1,
   "total_events": 5,
   "events": [
     {
@@ -14,9 +14,9 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "50 failed login attempts detected from internal IP address 192.168.1.100 during off-hours, indicating an automated brute force attack or compromised internal asset.",
+      "description": "Detected 50 consecutive failed login attempts originating from IP address 192.168.1.100, indicating an automated brute force or credential stuffing attempt.",
       "action": "Immediately block or rate-limit IP 192.168.1.100, enforce credential resets on targeted accounts, and inspect the source machine for unauthorized tools or lateral movement.",
-      "score": 75,
+      "score": 80,
       "embedding": [
         -0.012916797,
         0.013939643,
@@ -6190,7 +6190,7 @@
       },
       "threat_level": "UNKNOWN",
       "threat_type": "analysis_error",
-      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
       "action": "Retry manually or check API quota",
       "score": 0,
       "embedding": [
@@ -9278,7 +9278,7 @@
       },
       "threat_level": "UNKNOWN",
       "threat_type": "analysis_error",
-      "description": "Could not analyze event: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please ",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
       "action": "Retry manually or check API quota",
       "score": 0,
       "embedding": [
@@ -12364,11 +12364,11 @@
         "country": "Unknown",
         "timestamp": "2026-08-01T02:20:00Z"
       },
-      "threat_level": "HIGH",
-      "threat_type": "Credential Compromise",
-      "description": "An API key was utilized from an unfamiliar IP address with an unknown geographic origin, indicating potential unauthorized access or leaked credentials.",
-      "action": "Revoke and rotate the compromised API key immediately, inspect associated activity logs for suspicious operations, and configure IP allowlisting.",
-      "score": 75,
+      "threat_level": "UNKNOWN",
+      "threat_type": "analysis_error",
+      "description": "Could not analyze event: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more info",
+      "action": "Retry manually or check API quota",
+      "score": 0,
       "embedding": [
         0.008422641,
         0.0001296921,
