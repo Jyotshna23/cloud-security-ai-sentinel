@@ -8,7 +8,7 @@ import numpy as np
 from datetime import datetime, timezone
 
 client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
-MODEL = "gemini-flash-latest"
+MODEL = "gemini-3.8-flash"
 EMBED_MODEL = "gemini-embedding-001"
 TOP_K = 3  # how many similar past events to pull in as context
 
