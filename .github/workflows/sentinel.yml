@@ -32,8 +32,6 @@ jobs:
         run: |
           docker build -t ai-sentinel:latest .
           docker run -d -p 8000:8000 --name sentinel-api ai-sentinel:latest
-          
-          # Retry health check up to 10 times instead of a static sleep
           curl --fail --retry 10 --retry-delay 2 --retry-all-errors http://localhost:8000/health
 
       - name: Stop and Clean Up Docker Container
@@ -46,3 +44,12 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python sentinel.py
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add results.json history.json index.html
+          git commit -m "Update sentinel results [skip ci]" || echo "No changes to commit"
+          git pull --rebase origin main
+          git push
