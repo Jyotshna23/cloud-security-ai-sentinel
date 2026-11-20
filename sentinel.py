@@ -14,8 +14,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger("ai-sentinel")
 
-MODEL = "gemini-2.5-flash"
-FALLBACK_MODEL = "gemini-2.5-flash-lite"
+MODEL = "gemini-3.5-flash-lite"
+FALLBACK_MODEL = "gemini-3.8-flash"
 EMBED_MODEL = "gemini-embedding-001"
 TOP_K = 3
 HISTORY_PATH = "history.json"
