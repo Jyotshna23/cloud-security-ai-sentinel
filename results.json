@@ -1,5 +1,5 @@
 {
-  "scan_time": "2026-11-20 08:34:16 UTC",
+  "scan_time": "2026-11-20 15:20:22 UTC",
   "critical_count": 0,
   "high_count": 4,
   "total_events": 5,
@@ -14,7 +14,7 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "An excessive number of failed login attempts (50 attempts) originating from IP 192.168.1.100 indicates an active brute-force or credential stuffing attack against cloud authentication services.",
+      "description": "50 failed login attempts detected from IP 192.168.1.100, indicating a potential automated credential brute-forcing attempt.",
       "action": "Immediately block or rate-limit IP 192.168.1.100, enforce credential resets on targeted accounts, and inspect the source machine for unauthorized tools or lateral movement.",
       "score": 85,
       "embedding": [
@@ -3102,7 +3102,7 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Data Exfiltration / Unusual Data Download",
-      "description": "An unusual volume of 15.5 GB of data was downloaded from IP 10.0.0.55, which is indicative of potential data exfiltration or unauthorized data harvesting.",
+      "description": "An unusual and potentially sensitive large data download of 15.5 GB was detected from internal IP 10.0.0.55 at an off-hours timestamp.",
       "action": "Isolate host 10.0.0.55 from the network, revoke associated session credentials, identify the destination and user account involved, and review egress traffic logs and accessed data stores.",
       "score": 85,
       "embedding": [
@@ -6190,7 +6190,7 @@
       },
       "threat_level": "MEDIUM",
       "threat_type": "Port Scan",
-      "description": "A port scan of 1000 ports was detected originating from internal IP 172.16.0.200.",
+      "description": "A port scan was detected originating from internal IP 172.16.0.200, scanning 1000 ports.",
       "action": "Isolate the host at 172.16.0.200 from the internal network, review endpoint activity logs, and block unauthorized scanning behavior.",
       "score": 50,
       "embedding": [
@@ -9278,7 +9278,7 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Privilege Escalation",
-      "description": "A service account (svc-deploy) was granted a new admin role from IP 10.0.0.12, which represents a significant security risk for unauthorized privilege escalation.",
+      "description": "A new admin role was granted to a service account (svc-deploy) from IP 10.0.0.12.",
       "action": "Verify authorization ticket for the role assignment, audit recent activities by svc-deploy, and revoke the admin role if unintended.",
       "score": 85,
       "embedding": [
@@ -12366,7 +12366,7 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Unauthorized API Key Access",
-      "description": "An API key was used from a new, unknown location (IP: 203.0.113.5, Country: Unknown), indicating potential credential theft or unauthorized access.",
+      "description": "An API key was used from an unrecognized and unknown location, suggesting potential credential theft or unauthorized access.",
       "action": "Revoke and rotate the compromised API key immediately, inspect associated activity logs for suspicious operations, and configure IP allowlisting.",
       "score": 85,
       "embedding": [
