@@ -1,6 +1,10 @@
+import json
+import logging
+from typing import Any, Dict
+
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
-from typing import Dict, Any
+
 from sentinel import (
     get_client,
     load_history,
@@ -10,19 +14,20 @@ from sentinel import (
     retrieve_similar_events,
     analyze_threat,
 )
-import json
+
+logger = logging.getLogger("ai-sentinel-api")
 
 app = FastAPI(
     title="Cloud Security AI Sentinel API",
-    description="Real-time AI threat classification REST API with RAG historical context",
+    description="AI threat classification REST API with RAG historical context",
     version="1.0.0",
 )
 
 
 class SecurityEventRequest(BaseModel):
-    event: str = Field(..., example="Failed login attempt")
-    ip: str = Field(..., example="192.168.1.100")
-    details: Dict[str, Any] = Field(default_factory=dict, example={"attempts": 50})
+    event: str = Field(..., min_length=1, max_length=200, examples=["Failed login attempt"])
+    ip: str = Field(..., min_length=3, max_length=45, examples=["192.168.1.100"])
+    details: Dict[str, Any] = Field(default_factory=dict, examples=[{"attempts": 50}])
 
 
 @app.get("/health")
@@ -45,5 +50,7 @@ def analyze_security_event(payload: SecurityEventRequest):
         similar_events = retrieve_similar_events(event_vec, past_index)
         analysis = analyze_threat(client, raw_event, similar_events)
         return {"event": raw_event, "similar_past_matches": len(similar_events), **analysis}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    except Exception:
+        # Log the real error on the server, but do not send it to the caller.
+        logger.exception("Analysis failed")
+        raise HTTPException(status_code=500, detail="Analysis failed. Please try again later.")
