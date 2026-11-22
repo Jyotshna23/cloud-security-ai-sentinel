@@ -1,5 +1,5 @@
 {
-  "scan_time": "2026-11-21 22:51:10 UTC",
+  "scan_time": "2026-11-22 05:29:21 UTC",
   "critical_count": 0,
   "high_count": 4,
   "total_events": 5,
@@ -14,7 +14,7 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Brute Force Attack",
-      "description": "An IP address (192.168.1.100) has made 50 failed login attempts, indicating a potential brute-force or credential-stuffing attack.",
+      "description": "An excessive number of failed login attempts (50 attempts) detected from IP 192.168.1.100, indicating potential unauthorized access or brute force activity.",
       "action": "Immediately block or rate-limit IP 192.168.1.100, enforce credential resets on targeted accounts, and inspect the source machine for unauthorized tools or lateral movement.",
       "score": 85,
       "embedding": [
@@ -6190,7 +6190,7 @@
       },
       "threat_level": "MEDIUM",
       "threat_type": "Port Scan",
-      "description": "A port scan of 1000 ports was detected from IP address 172.16.0.200, indicating potential reconnaissance activity.",
+      "description": "A port scan involving 1000 ports was detected originating from IP 172.16.0.200.",
       "action": "Isolate the host at 172.16.0.200 from the internal network, review endpoint activity logs, and block unauthorized scanning behavior.",
       "score": 50,
       "embedding": [
@@ -9278,7 +9278,7 @@
       },
       "threat_level": "HIGH",
       "threat_type": "Privilege Escalation",
-      "description": "A new administrator role was granted to service account svc-deploy from IP 10.0.0.12, which represents a significant elevation of privilege that could lead to unauthorized access or control over the cloud environment.",
+      "description": "A service account (svc-deploy) was granted a new admin role from IP 10.0.0.12, which presents a high risk of unauthorized privilege escalation if unintended.",
       "action": "Verify authorization ticket for the role assignment, audit recent activities by svc-deploy, and revoke the admin role if unintended.",
       "score": 85,
       "embedding": [
@@ -12365,8 +12365,8 @@
         "timestamp": "2026-08-01T02:20:00Z"
       },
       "threat_level": "HIGH",
-      "threat_type": "Unauthorized Access / Compromised API Key",
-      "description": "An API key was used from an unknown location and IP address (203.0.113.5), indicating potential credential theft or unauthorized access.",
+      "threat_type": "Unauthorized Access / Credential Compromise",
+      "description": "An API key was used from a new and unrecognized location (country: Unknown, IP: 203.0.113.5), which indicates potential credential theft or unauthorized access.",
       "action": "Revoke and rotate the compromised API key immediately, inspect associated activity logs for suspicious operations, and configure IP allowlisting.",
       "score": 85,
       "embedding": [
